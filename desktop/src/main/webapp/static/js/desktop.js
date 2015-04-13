@@ -42,17 +42,30 @@ my.desktop = {
         my.desktop.refresh();
     },
     refresh:function() {
-    	var backgroundImageUrl = my.util.global.staticPath+"/images/wallpaper/"+$('#ui-desktop').attr("background");
+    	var background = $.cookie('background')||'7.jpg';
+    	var backgroundImageUrl = my.util.global.staticPath+"/images/wallpaper/"+background;
+    	if(background.startWith('http')) {
+    		backgroundImageUrl = background;
+    	}
         my.desktop.setWall(backgroundImageUrl);
         my.desktop.loadApp();
     },
-    loadApp:function() {
-        // 加载应用
-    	
-    	
-    	
-    	
-    },
+    loadApp:function(param, callback) {
+		$.ajax({
+			'url' : my.util.global.contextPath+'common/getUserApplicaions',
+			'data' : param,
+			'type' : 'GET',
+			'dataType' : 'json',
+			'async'	   : true,
+			'beforeSend' : function() {
+			},
+			'success' : function(data) {
+				callback(data);
+			},
+			'error'  : function(e) {
+			}
+		});
+	},
     setWall:function(imgUrl){
         $('.wallbackground').attr('src',imgUrl).one('load',function(){
             $('#ui-desktop').css('background-image','url('+imgUrl+')');

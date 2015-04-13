@@ -111,8 +111,6 @@
 			<column name="failure_login_count" type="INT" length="10" digits="0" caption="登录失败次数" notnull="true"/>
 			<column name="last_login_time" type="DATETIME" length="19" digits="0" caption="最后登录时间" notnull="true"/>
 			<column name="status" type="TINYINT" length="3" digits="0" caption="用户状态(1:正常使用状态,2:帐号冻结状态,3:帐号删除状态)" notnull="true"/>
-			<column name="background" type="VARCHAR" length="1000" digits="0" caption="背景图片" notnull="false"/>
-			<column name="file_size" type="BIGINT" length="19" digits="0" caption="网盘空间大小m" notnull="true"/>
 			<column name="created_time" type="DATETIME" length="19" digits="0" caption="创建时间" notnull="true"/>
 			<column name="last_modified_time" type="DATETIME" length="19" digits="0" caption="最后修改时间" notnull="true"/>
 			<primary column="id" />

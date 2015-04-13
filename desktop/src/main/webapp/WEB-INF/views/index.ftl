@@ -27,7 +27,7 @@
 		</div>
 	</div>
     <img class="wallbackground" src="" style='overflow:hidden;position:fixed;'/>
-    <div id='ui-desktop' background='${sessionUser.background!""}'>
+    <div id='ui-desktop'>
 		<div id="fileContiner" class="fileList_icon">
 			<div class="file systemBox menuDefault" data-app='{"name":"我的电脑","resize":1,"width":"800","height":"500","content":"${contextPath}/","icon":"computer.png"}'>
 				<div class="ico" style="background-image:url(${contextPath}/static/images/app/computer.png)"></div>
@@ -66,6 +66,7 @@
 		</ul>
 	</div>
     <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js"></script>
+    <script src="${contextPath}/static/js/libs/jquery.cookie.js"></script>
     <script src="${contextPath}/static/js/libs/jquery-artDialog.js"></script>
     <script src="${contextPath}/static/js/libs/jquery-contextMenu.js"></script>
     <script src="${contextPath}/static/js/common.js"></script>

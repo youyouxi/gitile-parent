@@ -1,6 +1,7 @@
 package com.gitile.desktop.interceptor;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
@@ -14,7 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.gitile.core.auth.AuthUtils;
 import com.gitile.core.utils.HttpUtils;
 import com.gitile.core.utils.StringUtils;
-import com.gitile.desktop.base.model.SysUser;
+import com.gitile.desktop.base.dto.SessionUser;
 
 /**
  * 权限验证拦截器
@@ -38,14 +39,29 @@ public class AuthInterceptor implements HandlerInterceptor {
 		String context = request.getContextPath();
 		String uri = HttpUtils.buildRedirectUrl(context, request.getRequestURI());
 		// 判断是否登录系统
-		SysUser sessionUser = (SysUser)AuthUtils.getSessionUser(request);
+		SessionUser sessionUser = (SessionUser)AuthUtils.getSessionUser(request);
 		if (sessionUser != null) {
 			request.setAttribute("sessionUser", sessionUser);
 			// 过滤无需权限验证的请求
 			if (!isAuthNeed(uri)) {
 				return true;
 			} else {
-				return true;
+				// 根据权限信息，进行权限验证
+				List<String> rights = sessionUser.getRights();
+				if(rights!=null&&rights.size()>0) {
+					for (String right : rights) {
+						if (AuthUtils.isPermission(uri, right)) {
+							return true;
+						}
+					}
+				}
+				// ajax超时处理
+				if (AuthUtils.isAjaxRequest(request)) {
+					response.setHeader("authstatus", "noauth_user");// 在响应头设置session状态
+				} else {
+					response.sendRedirect(context + "/error/403");
+				}
+				return false;
 			}
 		} else {
 			// ajax超时处理

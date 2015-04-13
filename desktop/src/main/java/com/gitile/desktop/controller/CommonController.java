@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.gitile.core.auth.AuthUtils;
+import com.gitile.desktop.base.dto.SessionUser;
 import com.gitile.desktop.base.model.SysApplication;
 import com.gitile.desktop.base.service.UserService;
 
@@ -26,11 +28,8 @@ public class CommonController {
 	@RequestMapping(value = "/common/getUserApplicaions", method = RequestMethod.GET)
 	@ResponseBody
 	public List<SysApplication> getUserApplicaions(HttpServletRequest request, Model model) {
-		
-		
-		
-		
-		return null;
+		SessionUser user = (SessionUser)AuthUtils.getSessionUser(request);
+		return userService.findUserApplicationByRoleId(user.getRoleId());
 	}
 	
 }

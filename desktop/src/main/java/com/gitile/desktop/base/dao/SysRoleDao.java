@@ -5,9 +5,28 @@
  */
 package com.gitile.desktop.base.dao;
 
+import java.util.List;
+
 import com.gitile.core.mybatis.dao.BaseDao;
+import com.gitile.desktop.base.model.SysApplication;
 
 /**
  * 系统角色数据库操作
  */
-public interface SysRoleDao<T> extends BaseDao<T> {}
+public interface SysRoleDao<T> extends BaseDao<T> {
+
+	/**
+	 * 根据角色编号获取角色可访问的地址集合
+	 * @param roleId
+	 * @return
+	 */
+	List<String> selectRightsByRoleId(String roleId);
+
+	/**
+	 * 根据角色编号获取角色可访问的应用
+	 * @param roleId
+	 * @return
+	 */
+	List<SysApplication> selectApplicationByRoleId(String roleId);
+	
+}

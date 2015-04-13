@@ -1,6 +1,7 @@
 package com.gitile.desktop.base.service.impl;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -12,9 +13,15 @@ import com.gitile.core.auth.AuthPassword;
 import com.gitile.core.auth.AuthUtils;
 import com.gitile.core.utils.DateUtils;
 import com.gitile.core.utils.StringUtils;
+import com.gitile.desktop.base.dao.SysRoleDao;
 import com.gitile.desktop.base.dao.SysUserDao;
+import com.gitile.desktop.base.dao.SysUserProfileDao;
+import com.gitile.desktop.base.dto.SessionUser;
+import com.gitile.desktop.base.model.SysApplication;
+import com.gitile.desktop.base.model.SysRole;
 import com.gitile.desktop.base.model.SysUser;
 import com.gitile.desktop.base.model.SysUserExample;
+import com.gitile.desktop.base.model.SysUserProfile;
 import com.gitile.desktop.base.service.UserService;
 
 @Service
@@ -22,6 +29,12 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	private SysUserDao<SysUser> sysUserDao;
+	
+	@Autowired
+	private SysUserProfileDao<SysUserProfile> sysUserProfileDao;
+	
+	@Autowired
+	private SysRoleDao<SysRole> sysRoleDao;
 
 	@Override
 	public int login(HttpServletRequest request, String username, String password, String checkcode) {
@@ -59,16 +72,23 @@ public class UserServiceImpl implements UserService {
 						passwd.setSalt(user.getSalt());
 						passwd.setPlainPassword(password);
 						if (AuthUtils.validatePassword(passwd)) {
-							// 设置session
-							AuthUtils.setSessionUser(request, user);
-							SysUser updateUser = new SysUser();
-							updateUser.setId(user.getId());
-							updateUser.setFailureLoginCount(0);
-							updateUser.setLastLoginTime(new Date());
-							// 删除验证码
-							session.setAttribute(AuthUtils.AUTH_CHECK_CODE, null);
-							sysUserDao.updateSelective(updateUser);
-							return AuthUtils.LOGIN_SUCCESS;
+							SysUserProfile profile = findUserProfile(user.getId());
+							if(profile!=null) {
+								// 设置session
+								SessionUser sessionUser = new SessionUser(user, profile);
+								sessionUser.setRights(findUserRights(user.getRoleId()));
+								AuthUtils.setSessionUser(request, sessionUser);
+								SysUser updateUser = new SysUser();
+								updateUser.setId(user.getId());
+								updateUser.setFailureLoginCount(0);
+								updateUser.setLastLoginTime(new Date());
+								// 删除验证码
+								session.setAttribute(AuthUtils.AUTH_CHECK_CODE, null);
+								sysUserDao.updateSelective(updateUser);
+								return AuthUtils.LOGIN_SUCCESS;
+							} else {
+								return AuthUtils.LOGIN_USER_NOT_FOUND;
+							}
 						} else {
 							SysUser updateUser = new SysUser();
 							updateUser.setId(user.getId());
@@ -99,6 +119,24 @@ public class UserServiceImpl implements UserService {
 	}
 	
 	/**
+	 * 获取用户扩展信息
+	 * @param id
+	 * @return
+	 */
+	private SysUserProfile findUserProfile(Long id) {
+		return sysUserProfileDao.selectById(id);
+	}
+	
+	/**
+	 * 获取用户可访问权限信息
+	 * @param roleId
+	 * @return
+	 */
+	private List<String> findUserRights(String roleId) {
+		return sysRoleDao.selectRightsByRoleId(roleId);
+	}
+	
+	/**
 	 * 验证验证码是否正确
 	 * @param request
 	 * @param checkcode
@@ -110,6 +148,11 @@ public class UserServiceImpl implements UserService {
 			return checkcode.equalsIgnoreCase(String.valueOf(verifyCode));
 		}
 		return true;
+	}
+
+	@Override
+	public List<SysApplication> findUserApplicationByRoleId(String roleId) {
+		return sysRoleDao.selectApplicationByRoleId(roleId);
 	}
 
 }
