@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 颜色创建工厂,使用一定范围内的随机颜色 -->
+	<bean id="colorFactory" class="org.patchca.color.RandomColorFactory"/>
+	<!-- 随机字体生成器 -->
+	<bean id="fontFactory" class="org.patchca.font.RandomFontFactory">
+		<property name="minSize" value="28"/>
+		<property name="maxSize" value="32"/>
+	</bean>
+	<!-- 随机字符生成器,去除掉容易混淆的字母和数字,如o和0等 -->
+	<bean id="wordFactory" class="org.patchca.word.RandomWordFactory">
+		<property name="minLength" value="4"/>
+		<property name="maxLength" value="5"/>
+		<property name="characters" value="abcdefghkmnpqstwxyz23456789"/>
+	</bean>
+	<!-- 自定义验证码图片背景 -->
+	<bean id="backgroundFactory" class="com.gitile.core.patchca.MyBackgroundFactory"/>
+	<!-- 文字渲染器设置 -->
+	<bean id="textRenderer" class="org.patchca.text.renderer.BestFitTextRenderer">
+		<!-- 
+		<property name="leftMargin" value=""/>
+		<property name="rightMargin" value=""/>
+		 -->
+		<property name="topMargin" value="3"/>
+		<property name="bottomMargin" value="3"/>
+	</bean>
+	<!-- 图片滤镜设置 -->
+	<bean id="wobbleImageOp" class="org.patchca.filter.library.WobbleImageOp">
+		<property name="edgeMode" value="1"/>
+		<property name="xAmplitude" value="2.0"/>
+		<property name="yAmplitude" value="1.0"/>
+	</bean>
+	<bean id="filterFactory" class="org.patchca.filter.ConfigurableFilterFactory">
+		<property name="filters">
+			<list>
+				<ref bean="wobbleImageOp"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="configurableCaptchaService" class="org.patchca.service.ConfigurableCaptchaService">
+		<property name="colorFactory" ref="colorFactory"/>
+		<property name="fontFactory" ref="fontFactory"/>
+		<property name="wordFactory" ref="wordFactory"/>
+		<property name="backgroundFactory" ref="backgroundFactory"/>
+		<property name="textRenderer" ref="textRenderer"/>
+		<property name="filterFactory" ref="filterFactory"/>
+		<property name="width" value="120"/>
+		<property name="height" value="32"/>
+	</bean>
+</beans>

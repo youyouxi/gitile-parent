@@ -1,0 +1,22 @@
+*.class
+# Package Files #
+*.war
+*.ear
+
+# Eclipse Files #
+.project
+.settings
+.classpath
+.springBeans
+
+# Maven Files #
+target
+
+# Grunt Files #
+node_modules
+.tmp
+
+# Other Files #
+logs
+*~
+*.bak

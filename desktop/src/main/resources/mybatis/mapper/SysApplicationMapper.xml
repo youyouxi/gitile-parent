@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gitile.desktop.base.model.SysApplication" >
+	
+	<resultMap id="BaseResultMap" type="com.gitile.desktop.base.model.SysApplication">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="icon" property="icon" />
+		<result column="simple" property="simple" />
+		<result column="resize" property="resize" />
+		<result column="height" property="height" />
+		<result column="width" property="width" />
+		<result column="app_url" property="appUrl" />
+		<result column="authorize" property="authorize" />
+		<result column="remark" property="remark" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,name,icon,simple,resize,height,width,app_url,authorize,remark
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+		select <include refid="Base_Column_List" /> from sys_application where id = #{id}
+	</select>
+	<delete id="delete" parameterType="java.lang.Long" >
+		delete from sys_application where id = #{id}
+	</delete>
+	<insert id="save" parameterType="com.gitile.desktop.base.model.SysApplication" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_application(name,icon,simple,resize,height,width,app_url,authorize,remark) values (#{name},#{icon},#{simple},#{resize},#{height},#{width},#{appUrl},#{authorize},#{remark});
+	</insert>
+	<update id="update" parameterType="com.gitile.desktop.base.model.SysApplication" >
+		update sys_application
+		<set> 
+			name = #{name},
+			icon = #{icon},
+			simple = #{simple},
+			resize = #{resize},
+			height = #{height},
+			width = #{width},
+			app_url = #{appUrl},
+			authorize = #{authorize},
+			remark = #{remark},
+		</set> 
+		where id = #{id}
+	</update>
+	<update id="updateSelective" parameterType="com.gitile.desktop.base.model.SysApplication" >
+		update sys_application
+		<set> 
+			<if test="name != null">name = #{name},</if>
+			<if test="icon != null">icon = #{icon},</if>
+			<if test="simple != null">simple = #{simple},</if>
+			<if test="resize != null">resize = #{resize},</if>
+			<if test="height != null">height = #{height},</if>
+			<if test="width != null">width = #{width},</if>
+			<if test="appUrl != null">app_url = #{appUrl},</if>
+			<if test="authorize != null">authorize = #{authorize},</if>
+			<if test="remark != null">remark = #{remark},</if>
+		</set> 
+		where id = #{id}
+	</update>
+	<sql id="Example_Where_Clause" >
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause" >
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysApplicationExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_application
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectListByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysApplicationExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_application
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+		<if test="limitByClause != null" >
+			limit ${limitByClause}
+		</if>
+	</select>
+	<select id="selectCountByExample" resultType="java.lang.Integer" parameterType="com.gitile.desktop.base.model.SysApplicationExample" >
+		select count(*) from sys_application
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExample" parameterType="map" >
+		update sys_application
+		<set> 
+			name = #{record.name},
+			icon = #{record.icon},
+			simple = #{record.simple},
+			resize = #{record.resize},
+			height = #{record.height},
+			width = #{record.width},
+			app_url = #{record.appUrl},
+			authorize = #{record.authorize},
+			remark = #{record.remark},
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExampleSelective" parameterType="map" >
+		update sys_application
+		<set> 
+			<if test="record.name != null">name = #{record.name},</if>
+			<if test="record.icon != null">icon = #{record.icon},</if>
+			<if test="record.simple != null">simple = #{record.simple},</if>
+			<if test="record.resize != null">resize = #{record.resize},</if>
+			<if test="record.height != null">height = #{record.height},</if>
+			<if test="record.width != null">width = #{record.width},</if>
+			<if test="record.appUrl != null">app_url = #{record.appUrl},</if>
+			<if test="record.authorize != null">authorize = #{record.authorize},</if>
+			<if test="record.remark != null">remark = #{record.remark},</if>
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+</mapper>

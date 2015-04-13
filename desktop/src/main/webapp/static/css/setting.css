@@ -1,0 +1,55 @@
+#ui-setting { position: absolute; width: 100%; top: 0;}
+#ui-setting ul { margin: 0; padding: 0;}
+#ui-setting li { margin: 0; padding: 0;}
+#ui-setting a { text-decoration: none; color: #446;}
+#ui-setting input,#ui-setting input:focus { outline: none; box-shadow: none; border: 1px solid #bbb; padding: 5px;}
+#ui-setting input:focus { border-color: #75A1F0 !important; outline: none; box-shadow: 0 0 12px #75A1F0; -webkit-transition: all 0.218s; -moz-transition: all 0.218s; -o-transition: all 0.218s; -ms-transition: all 0.218s; transition: all 0.218s;}
+#ui-setting .font-icon { padding-right: 0.8em; display: inline-block;}
+#ui-setting .menu_left { min-width: 170px; position: fixed; z-index: 999; left: 0; height: 100%; width: 20%; background: #4265a4;}
+#ui-setting .menu_left h1 { color: #fff; font-weight: 400; padding: 15px 20px 20px 40px; font-size: 30px; margin: 0; font-family: Helvetica, "Helvetica Neue", "Century Gothic", "微软雅黑", "Microsoft Yahei", "STXihei";}
+#ui-setting .menu_left .setting li { line-height: 2.5em; color: #fff; font-size: 15px; box-sizing: border-box; text-indent: 10px; display: block; cursor: pointer; outline: none; -webkit-transition: padding 0.2s; -moz-transition: padding 0.2s; -o-transition: padding 0.2s; -ms-transition: padding 0.2s; transition: padding 0.2s; border-left: 4px solid #4265a4;}
+#ui-setting .menu_left .setting li.hover { background: #5c7fbd; border-left: 4px solid #5c7fbd;}
+#ui-setting .menu_left .setting li.selected { background: #5579ba; border-left: 4px solid #fff; padding-left: 20px;}
+#ui-setting .main { position: absolute; left: 150px; width: initial; margin: 15px 0 20px 15px; right: 20px;}
+#ui-setting .main .h1 .font-icon { padding-right: 16px;}
+#ui-setting .main div.h1 { font-weight: 400; color: #5c7fbd; padding: 0px 0 10px 10px; font-size: 26px;}
+#ui-setting a.add { display: block; text-align: center; text-decoration: none; background: #f6f6f6; line-height: 2em; height: 2em; border: 1px solid #ccc; color: #555;}
+#ui-setting a.add:hover { background: #eee;}
+#ui-setting a.button { text-decoration: none; cursor: pointer; text-shadow: none; border: none; box-shadow: none; border-radius: 0; margin: 5px 10px 5px 0; font-weight: 400; padding: 0.5em 1.5em; font-size: 13px; display: inline-block; text-align: center; -webkit-transition: all 0.218s; -moz-transition: all 0.218s; -o-transition: all 0.218s; -ms-transition: all 0.218s; transition: all 0.218s; background: #4265a4; color: #fff;}
+#ui-setting a.button:hover { background: #344f7f; text-shadow: none; border: none; box-shadow: none; border-radius: 0;}
+#ui-setting a.button:active { background: #162237; text-shadow: none; border: none; box-shadow: none; border-radius: 0;}
+#ui-setting a.create_app { margin: 0; display: block; position: absolute; right: 21px;}
+#ui-setting .app_menu_left { min-width: 130px; width: 130px;}
+#ui-setting .app_menu_left .setting li.selected { padding-left: 12px;}
+#ui-setting .app_list { left: 130px; }
+#ui-setting .app_list .app-list { margin-top: 10px; border: 1px solid #ddd;}
+#ui-setting .app_list .app-list li { list-style: none; border-bottom: 1px solid #eee;}
+#ui-setting .app_list .app-list li a.icon { float: left; width: 70px; padding: 5px;}
+#ui-setting .app_list .app-list li a.icon img { width: 64px; height: 64px;}
+#ui-setting .app_list .app-list li p { float: left; width: 340px; margin: 0; padding: 0; color: #666; height: 67px; overflow: hidden;}
+#ui-setting .app_list .app-list li p span { display: block; word-break: break-all;}
+#ui-setting .app_list .app-list li p span.title { font-size: 16px; font-weight: 800; line-height: 33px; height: 33px;}
+#ui-setting .app_list .app-list li .right { width: 160px; float: right;}
+#ui-setting .setting_menu_left { min-width: 150px; width: 150px;}
+#ui-setting .setting_menu_left .setting li.selected { padding-left: 12px;}
+#ui-setting .main .section { padding-bottom: 10px; border-top: 1px solid #ddd; padding-top: 10px; color: #666;}
+#ui-setting .main .section .box .line { margin-top: 15px; margin-bottom: 15px;}
+#ui-setting .main .section .box .button { margin-left: 110px; margin-top: 5px;}
+#ui-setting .main .section .box span { display: block; float: left; width: 110px; line-height: 25px;}
+#ui-setting .main .section .box input { display: block; width: 250px; font-weight: 800; color: #446;}
+#ui-setting .main .section h3 { font-size: 14px; font-weight: bold; width: 140px; float: left;}
+#ui-setting .main .section label { display: block;}
+#ui-setting .main .list { float: left; width: 120px; background: #fff; margin-right: 15px; height: 92px; border: 1px solid #ddd; margin-bottom: 10px; cursor: pointer;}
+#ui-setting .main .list .ico { width: 100px; height: 65px; margin: 10px; background-color: #fff; box-shadow: 0 1px 15px rgba(0,0,0,0.2);}
+#ui-setting .main .list .ico img { width: 100px; height: 65px;}
+#ui-setting .main .list.this { background-color: #ddd; color: #4265a4; border-color: #888;}
+#ui-setting .main .list.listhover { border-color: #888;}
+#ui-setting .main .content { word-break: break-all; color: #448;}
+#ui-setting .main .content h2 { padding: 5px 0 5px 20px; margin: 10px 0; font-weight: 400; font-size: 16px; border-left: 5px solid #4265a4;}
+#ui-setting .main .content p { margin-left: 5px; text-indent: 2em; margin-bottom: 8px; color: #666;}
+#ui-setting .main .content .box { color: #555; clear: both; color: #666;}
+#ui-setting .main .content .box .title { color: #444; border-bottom: 1px dashed #ddd; font-size: 21px; margin-bottom: 10px; margin-top: 10px;}
+#ui-setting .main .content .box .title span { border-bottom: 1px solid #aaa; display: inline-block; margin-bottom: -1px; text-align: center; padding: 5px 10px; float: none; width: auto;}
+#ui-setting .main .content .box p { line-height: 1.7em; text-indent: 2em; padding: 3px; margin: 0;}
+#ui-setting .main .content .box p b { padding-right: 8px;}
+#ui-setting .main .content .box p i { padding-right: 10px;}

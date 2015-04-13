@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gitile.desktop.base.model.SysApplicationRight" >
+	
+	<resultMap id="BaseResultMap" type="com.gitile.desktop.base.model.SysApplicationRight">
+		<result column="id" property="id" />
+		<result column="app_id" property="appId" />
+		<result column="parent_id" property="parentId" />
+		<result column="name" property="name" />
+		<result column="right_type" property="rightType" />
+		<result column="right_url" property="rightUrl" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,app_id,parent_id,name,right_type,right_url
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+		select <include refid="Base_Column_List" /> from sys_application_right where id = #{id}
+	</select>
+	<delete id="delete" parameterType="java.lang.Long" >
+		delete from sys_application_right where id = #{id}
+	</delete>
+	<insert id="save" parameterType="com.gitile.desktop.base.model.SysApplicationRight" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_application_right(app_id,parent_id,name,right_type,right_url) values (#{appId},#{parentId},#{name},#{rightType},#{rightUrl});
+	</insert>
+	<update id="update" parameterType="com.gitile.desktop.base.model.SysApplicationRight" >
+		update sys_application_right
+		<set> 
+			app_id = #{appId},
+			parent_id = #{parentId},
+			name = #{name},
+			right_type = #{rightType},
+			right_url = #{rightUrl},
+		</set> 
+		where id = #{id}
+	</update>
+	<update id="updateSelective" parameterType="com.gitile.desktop.base.model.SysApplicationRight" >
+		update sys_application_right
+		<set> 
+			<if test="appId != null">app_id = #{appId},</if>
+			<if test="parentId != null">parent_id = #{parentId},</if>
+			<if test="name != null">name = #{name},</if>
+			<if test="rightType != null">right_type = #{rightType},</if>
+			<if test="rightUrl != null">right_url = #{rightUrl},</if>
+		</set> 
+		where id = #{id}
+	</update>
+	<sql id="Example_Where_Clause" >
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause" >
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysApplicationRightExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_application_right
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectListByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysApplicationRightExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_application_right
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+		<if test="limitByClause != null" >
+			limit ${limitByClause}
+		</if>
+	</select>
+	<select id="selectCountByExample" resultType="java.lang.Integer" parameterType="com.gitile.desktop.base.model.SysApplicationRightExample" >
+		select count(*) from sys_application_right
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExample" parameterType="map" >
+		update sys_application_right
+		<set> 
+			app_id = #{record.appId},
+			parent_id = #{record.parentId},
+			name = #{record.name},
+			right_type = #{record.rightType},
+			right_url = #{record.rightUrl},
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExampleSelective" parameterType="map" >
+		update sys_application_right
+		<set> 
+			<if test="record.appId != null">app_id = #{record.appId},</if>
+			<if test="record.parentId != null">parent_id = #{record.parentId},</if>
+			<if test="record.name != null">name = #{record.name},</if>
+			<if test="record.rightType != null">right_type = #{record.rightType},</if>
+			<if test="record.rightUrl != null">right_url = #{record.rightUrl},</if>
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+</mapper>

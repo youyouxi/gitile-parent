@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gitile.desktop.base.model.SysRole" >
+	
+	<resultMap id="BaseResultMap" type="com.gitile.desktop.base.model.SysRole">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="level_id" property="levelId" />
+		<result column="remark" property="remark" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,name,level_id,remark
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
+		select <include refid="Base_Column_List" /> from sys_role where id = #{id}
+	</select>
+	<delete id="delete" parameterType="java.lang.String" >
+		delete from sys_role where id = #{id}
+	</delete>
+	<insert id="save" parameterType="com.gitile.desktop.base.model.SysRole" >
+		insert into sys_role(id,name,level_id,remark) values (#{id},#{name},#{levelId},#{remark});
+	</insert>
+	<update id="update" parameterType="com.gitile.desktop.base.model.SysRole" >
+		update sys_role
+		<set> 
+			name = #{name},
+			level_id = #{levelId},
+			remark = #{remark},
+		</set> 
+		where id = #{id}
+	</update>
+	<update id="updateSelective" parameterType="com.gitile.desktop.base.model.SysRole" >
+		update sys_role
+		<set> 
+			<if test="name != null">name = #{name},</if>
+			<if test="levelId != null">level_id = #{levelId},</if>
+			<if test="remark != null">remark = #{remark},</if>
+		</set> 
+		where id = #{id}
+	</update>
+	<sql id="Example_Where_Clause" >
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause" >
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysRoleExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_role
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectListByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysRoleExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_role
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+		<if test="limitByClause != null" >
+			limit ${limitByClause}
+		</if>
+	</select>
+	<select id="selectCountByExample" resultType="java.lang.Integer" parameterType="com.gitile.desktop.base.model.SysRoleExample" >
+		select count(*) from sys_role
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExample" parameterType="map" >
+		update sys_role
+		<set> 
+			name = #{record.name},
+			level_id = #{record.levelId},
+			remark = #{record.remark},
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExampleSelective" parameterType="map" >
+		update sys_role
+		<set> 
+			<if test="record.name != null">name = #{record.name},</if>
+			<if test="record.levelId != null">level_id = #{record.levelId},</if>
+			<if test="record.remark != null">remark = #{record.remark},</if>
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+</mapper>

@@ -1,0 +1,147 @@
+<Module 
+	name="desktop"
+	caption="虚拟桌面"
+	base_pkg="com.gitile.desktop.base"
+	mybatis_path="mybatis"
+	mapper_path="mybatis/mapper">
+		<table name="sys_application" comment="应用信息">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="应用名称" notnull="true"/>
+			<column name="icon" type="VARCHAR" length="200" digits="0" caption="应用图标" notnull="true"/>
+			<column name="simple" type="TINYINT" length="3" digits="0" caption="是否透明（1：透明，0：不透明）" notnull="true"/>
+			<column name="resize" type="TINYINT" length="3" digits="0" caption="调整大小（1：可以，0：不可以）" notnull="true"/>
+			<column name="height" type="VARCHAR" length="200" digits="0" caption="窗口高度" notnull="true"/>
+			<column name="width" type="VARCHAR" length="200" digits="0" caption="窗口宽度" notnull="true"/>
+			<column name="app_url" type="VARCHAR" length="1000" digits="0" caption="访问路径" notnull="true"/>
+			<column name="authorize" type="TINYINT" length="3" digits="0" caption="是否授权" notnull="true"/>
+			<column name="remark" type="VARCHAR" length="1000" digits="0" caption="备注" notnull="false"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_application_right" comment="应用菜单权限">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="app_id" type="BIGINT" length="19" digits="0" caption="应用编号" notnull="true"/>
+			<column name="parent_id" type="BIGINT" length="19" digits="0" caption="父类编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="名称" notnull="true"/>
+			<column name="right_type" type="TINYINT" length="3" digits="0" caption="类型（1：分类、2：菜单、3：权限）" notnull="true"/>
+			<column name="right_url" type="VARCHAR" length="500" digits="0" caption="权限地址" notnull="false"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_area" comment="地区信息表">
+			<column name="id" type="VARCHAR" length="200" digits="0" caption="编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="名称" notnull="true"/>
+			<column name="display_name" type="VARCHAR" length="1000" digits="0" caption="全称" notnull="true"/>
+			<column name="sort" type="INT" length="10" digits="0" caption="排序" notnull="true"/>
+			<column name="created_time" type="DATETIME" length="19" digits="0" caption="创建时间" notnull="true"/>
+			<column name="last_modified_time" type="DATETIME" length="19" digits="0" caption="最后修改时间" notnull="true"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_custom_form" comment="自定义表单">
+			<column name="id" type="VARCHAR" length="200" digits="0" caption="表单编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="表单名称" notnull="true"/>
+			<column name="remarks" type="VARCHAR" length="1000" digits="0" caption="备注" notnull="false"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_custom_form_property" comment="自定义表单属性">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="form_id" type="VARCHAR" length="200" digits="0" caption="表单编号" notnull="true"/>
+			<column name="sort" type="INT" length="10" digits="0" caption="排序" notnull="true"/>
+			<column name="lable" type="VARCHAR" length="200" digits="0" caption="标题" notnull="true"/>
+			<column name="form_type" type="VARCHAR" length="200" digits="0" caption="类型" notnull="true"/>
+			<column name="required" type="TINYINT" length="3" digits="0" caption="是否必填" notnull="true"/>
+			<column name="input_length" type="TINYINT" length="3" digits="0" caption="最大长度" notnull="false"/>
+			<column name="input_regular" type="VARCHAR" length="200" digits="0" caption="验证规则" notnull="false"/>
+			<column name="option_values" type="VARCHAR" length="1000" digits="0" caption="选项内容" notnull="false"/>
+			<primary column="id" />
+			<foreign name="sys_custom_form_property_ibfk_1" column="form_id" relate="sys_custom_form" relate_column="id" delete="3" update="3"/>
+		</table>
+		<table name="sys_dept" comment="部门信息">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="parent_id" type="BIGINT" length="19" digits="0" caption="父级编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="100" digits="0" caption="部门名称" notnull="true"/>
+			<column name="sort" type="INT" length="10" digits="0" caption="排序（升序）" notnull="true"/>
+			<column name="status" type="TINYINT" length="3" digits="0" caption="公司状态(1:正常状态,2:已删除状态)" notnull="true"/>
+			<column name="propertys" type="TEXT" length="65535" digits="0" caption="扩展表单内容" notnull="false"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_dept_position" comment="部门职位信息">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="dept_id" type="BIGINT" length="19" digits="0" caption="部门编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="职位名称" notnull="true"/>
+			<column name="remark" type="VARCHAR" length="1000" digits="0" caption="描述" notnull="false"/>
+			<primary column="id" />
+			<foreign name="sys_dept_position_ibfk_1" column="dept_id" relate="sys_dept" relate_column="id" delete="3" update="3"/>
+		</table>
+		<table name="sys_role" comment="系统角色">
+			<column name="id" type="VARCHAR" length="200" digits="0" caption="角色编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="角色名称" notnull="true"/>
+			<column name="level_id" type="BIGINT" length="19" digits="0" caption="审批级别" notnull="true"/>
+			<column name="remark" type="VARCHAR" length="1000" digits="0" caption="角色描述" notnull="false"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_role_application" comment="角色可使用应用">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="role_id" type="VARCHAR" length="200" digits="0" caption="角色编号" notnull="true"/>
+			<column name="app_id" type="BIGINT" length="19" digits="0" caption="应用编号" notnull="true"/>
+			<primary column="id" />
+			<foreign name="sys_role_application_ibfk_1" column="app_id" relate="sys_application" relate_column="id" delete="3" update="3"/>
+			<foreign name="sys_role_application_ibfk_2" column="role_id" relate="sys_role" relate_column="id" delete="3" update="3"/>
+		</table>
+		<table name="sys_role_application_right" comment="角色可访问权限">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="role_id" type="VARCHAR" length="200" digits="0" caption="角色编号" notnull="true"/>
+			<column name="app_id" type="BIGINT" length="19" digits="0" caption="应用编号" notnull="true"/>
+			<column name="right_id" type="BIGINT" length="19" digits="0" caption="权限编号" notnull="true"/>
+			<primary column="id" />
+			<foreign name="sys_role_application_right_ibfk_1" column="role_id" relate="sys_role" relate_column="id" delete="3" update="3"/>
+			<foreign name="sys_role_application_right_ibfk_2" column="app_id" relate="sys_application" relate_column="id" delete="3" update="3"/>
+			<foreign name="sys_role_application_right_ibfk_3" column="right_id" relate="sys_application_right" relate_column="id" delete="3" update="3"/>
+		</table>
+		<table name="sys_role_level" comment="角色审批级别">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="员工编号" notnull="true"/>
+			<column name="sort" type="INT" length="10" digits="0" caption="上级领导" notnull="true"/>
+			<primary column="id" />
+		</table>
+		<table name="sys_user" comment="账号信息">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="role_id" type="VARCHAR" length="200" digits="0" caption="所属角色" notnull="true"/>
+			<column name="username" type="VARCHAR" length="200" digits="0" caption="用户名" notnull="true"/>
+			<column name="password" type="VARCHAR" length="200" digits="0" caption="加密密码" notnull="true"/>
+			<column name="salt" type="VARCHAR" length="200" digits="0" caption="加密秘钥" notnull="true"/>
+			<column name="failure_login_count" type="INT" length="10" digits="0" caption="登录失败次数" notnull="true"/>
+			<column name="last_login_time" type="DATETIME" length="19" digits="0" caption="最后登录时间" notnull="true"/>
+			<column name="status" type="TINYINT" length="3" digits="0" caption="用户状态(1:正常使用状态,2:帐号冻结状态,3:帐号删除状态)" notnull="true"/>
+			<column name="background" type="VARCHAR" length="1000" digits="0" caption="背景图片" notnull="false"/>
+			<column name="file_size" type="BIGINT" length="19" digits="0" caption="网盘空间大小m" notnull="true"/>
+			<column name="created_time" type="DATETIME" length="19" digits="0" caption="创建时间" notnull="true"/>
+			<column name="last_modified_time" type="DATETIME" length="19" digits="0" caption="最后修改时间" notnull="true"/>
+			<primary column="id" />
+			<foreign name="sys_user_ibfk_1" column="role_id" relate="sys_role" relate_column="id" delete="3" update="3"/>
+		</table>
+		<table name="sys_user_profile" comment="账号扩展信息">
+			<column name="id" type="BIGINT" length="19" digits="0" caption="用户编号" notnull="true"/>
+			<column name="name" type="VARCHAR" length="200" digits="0" caption="姓名" notnull="true"/>
+			<column name="sex" type="TINYINT" length="3" digits="0" caption="性别" notnull="true"/>
+			<column name="dept_id" type="BIGINT" length="19" digits="0" caption="所属部门" notnull="true"/>
+			<column name="position_id" type="BIGINT" length="19" digits="0" caption="当前职位" notnull="true"/>
+			<column name="id_card" type="VARCHAR" length="200" digits="0" caption="身份证号" notnull="false"/>
+			<column name="head_portrait" type="VARCHAR" length="1000" digits="0" caption="头像" notnull="false"/>
+			<column name="native_place" type="VARCHAR" length="200" digits="0" caption="籍贯" notnull="false"/>
+			<column name="nation" type="VARCHAR" length="200" digits="0" caption="民族" notnull="false"/>
+			<column name="birthday" type="DATE" length="10" digits="0" caption="出生日期" notnull="false"/>
+			<column name="birthday_type" type="TINYINT" length="3" digits="0" caption="阳历/阴历" notnull="false"/>
+			<column name="work_time" type="DATE" length="10" digits="0" caption="参加工作时间" notnull="false"/>
+			<column name="education" type="VARCHAR" length="200" digits="0" caption="学历" notnull="false"/>
+			<column name="entry_time" type="DATE" length="10" digits="0" caption="入职时间" notnull="false"/>
+			<column name="quit_time" type="DATE" length="10" digits="0" caption="离职时间" notnull="false"/>
+			<column name="propertys" type="TEXT" length="65535" digits="0" caption="扩展小字段" notnull="false"/>
+			<column name="self_evaluation" type="TEXT" length="65535" digits="0" caption="自我评价" notnull="false"/>
+			<column name="education_experience" type="TEXT" length="65535" digits="0" caption="教育经历" notnull="false"/>
+			<column name="work_experience" type="TEXT" length="65535" digits="0" caption="工作经历" notnull="false"/>
+			<column name="training_experience" type="TEXT" length="65535" digits="0" caption="培训经历" notnull="false"/>
+			<column name="extend_propertys" type="TEXT" length="65535" digits="0" caption="扩展大字段" notnull="false"/>
+			<primary column="id" />
+			<foreign name="sys_user_profile_ibfk_1" column="dept_id" relate="sys_dept" relate_column="id" delete="3" update="3"/>
+			<foreign name="sys_user_profile_ibfk_2" column="position_id" relate="sys_dept_position" relate_column="id" delete="3" update="3"/>
+		</table>
+</Module>

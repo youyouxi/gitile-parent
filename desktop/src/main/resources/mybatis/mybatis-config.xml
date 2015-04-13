@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings>
+		<setting name="lazyLoadingEnabled" value="false" />
+		<setting name="cacheEnabled" value="true" />
+	</settings>
+	<mappers>
+		<!-- base -->
+		<mapper resource="mybatis/mapper/SysApplicationMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysApplicationRightMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysAreaMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysCustomFormMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysCustomFormPropertyMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysDeptMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysDeptPositionMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysRoleMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysRoleApplicationMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysRoleApplicationRightMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysRoleLevelMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysUserMapper.xml"/>
+		<mapper resource="mybatis/mapper/SysUserProfileMapper.xml"/>
+
+	</mappers>
+</configuration>
