@@ -28,20 +28,7 @@
 	</div>
     <img class="wallbackground" src="" style='overflow:hidden;position:fixed;'/>
     <div id='ui-desktop'>
-		<div id="fileContiner" class="fileList_icon">
-			<div class="file systemBox menuDefault" data-app='{"name":"我的电脑","resize":1,"width":"800","height":"500","content":"${contextPath}/","icon":"computer.png"}'>
-				<div class="ico" style="background-image:url(${contextPath}/static/images/app/computer.png)"></div>
-				<div class="titleBox"><span>我的电脑</span></div>
-			</div>
-			<div class="file systemBox menuDefault" data-app='{"name":"应用商店","width":"800","height":"600","content":"${contextPath}/","icon":"market.png"}'>
-				<div class="ico" style="background-image:url(${contextPath}/static/images/app/market.png)"></div>
-				<div class="titleBox"><span>应用商店</span></div>
-			</div>
-            <div class="file systemBox menuApp" data-app='{"name":"计算器","width":"538","height":"600","icon":"calcu.png","content":"http://apps2.bdimg.com/store/static/kvt/3e9b470e8b9fceaa66d46a935b45518e.swf"}'>
-				<div class="ico" style="background-image:url(${contextPath}/static/images/app/calcu.png)"></div>
-				<div class="titleBox"><span>计算器</span></div>
-			</div>
-		</div>
+		<div id="fileContiner" class="fileList_icon"></div>
         <div id="taskbar" style="display:block;"></div>
 	</div>
     <a href="#" class="start"></a>
@@ -53,15 +40,15 @@
 		</ul>
 		<ul id="links">
 			<li class="icon"></li>
-			<li><a href="#" onclick="my.desktop.openWindow('我的文件', '${contextPath}/');"><span>我的文件</span></a></li>
-			<li><a href="#" onclick="my.desktop.openWindow('共享文件', '${contextPath}/');"><span>共享文件</span></a></li>
-			<li><a href="#" onclick="my.desktop.openWindow('下载目录', '${contextPath}/');"><span>下载目录</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('我的文件', '${contextPath}/user/index', 800, 500);"><span>我的文件</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('共享文件', '${contextPath}/user/share', 800, 500);"><span>共享文件</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('下载目录', '${contextPath}/user/dowload', 800, 500);"><span>下载目录</span></a></li>
 			<li><div id="rightspliter"></div></li>
-            <li><a href="#" onclick="my.desktop.openWindow('桌面背景', '${contextPath}/');"><span>桌面背景</span></a></li>
-            <li><a href="#" onclick="my.desktop.openWindow('系统设置', '${contextPath}/');"><span>系统设置</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('桌面背景', '${contextPath}/common/backgroud', 800, 500);"><span>桌面背景</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('系统设置', '${contextPath}/common/profile', 800, 500);"><span>系统设置</span></a></li>
             <li><div id="rightspliter"></div></li>
-            <li><a href="#" onclick="my.desktop.openWindow('关于我们', '${contextPath}/aboutus');"><span>关于我们</span></a></li>
-            <li><a href="#" onclick="my.desktop.openWindow('使用帮助', '${contextPath}/help');"><span>使用帮助</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('关于我们', '${contextPath}/common/aboutus', 800, 500);"><span>关于我们</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('使用帮助', '${contextPath}/common/help', 800, 500);"><span>使用帮助</span></a></li>
 			<li><a href="${contextPath}/logout" style="margin-top:82px;"><span>安全退出</span></a></li>            
 		</ul>
 	</div>

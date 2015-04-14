@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.gitile.desktop.base.model.SysUserProfile" >
+	
+	<resultMap id="BaseResultMap" type="com.gitile.desktop.base.model.SysUserProfile">
+		<result column="id" property="id" />
+		<result column="name" property="name" />
+		<result column="sex" property="sex" />
+		<result column="dept_id" property="deptId" />
+		<result column="position_id" property="positionId" />
+		<result column="id_card" property="idCard" />
+		<result column="head_portrait" property="headPortrait" />
+		<result column="native_place" property="nativePlace" />
+		<result column="nation" property="nation" />
+		<result column="birthday" property="birthday" />
+		<result column="birthday_type" property="birthdayType" />
+		<result column="work_time" property="workTime" />
+		<result column="education" property="education" />
+		<result column="entry_time" property="entryTime" />
+		<result column="quit_time" property="quitTime" />
+		<result column="propertys" property="propertys" />
+		<result column="self_evaluation" property="selfEvaluation" />
+		<result column="education_experience" property="educationExperience" />
+		<result column="work_experience" property="workExperience" />
+		<result column="training_experience" property="trainingExperience" />
+		<result column="extend_propertys" property="extendPropertys" />
+	</resultMap>
+	<sql id="Base_Column_List">
+		id,name,sex,dept_id,position_id,id_card,head_portrait,native_place,nation,birthday,birthday_type,work_time,education,entry_time,quit_time,propertys,self_evaluation,education_experience,work_experience,training_experience,extend_propertys
+	</sql>
+	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+		select <include refid="Base_Column_List" /> from sys_user_profile where id = #{id}
+	</select>
+	<delete id="delete" parameterType="java.lang.Long" >
+		delete from sys_user_profile where id = #{id}
+	</delete>
+	<insert id="save" parameterType="com.gitile.desktop.base.model.SysUserProfile" useGeneratedKeys="true" keyProperty="id">
+		insert into sys_user_profile(name,sex,dept_id,position_id,id_card,head_portrait,native_place,nation,birthday,birthday_type,work_time,education,entry_time,quit_time,propertys,self_evaluation,education_experience,work_experience,training_experience,extend_propertys) values (#{name},#{sex},#{deptId},#{positionId},#{idCard},#{headPortrait},#{nativePlace},#{nation},#{birthday},#{birthdayType},#{workTime},#{education},#{entryTime},#{quitTime},#{propertys},#{selfEvaluation},#{educationExperience},#{workExperience},#{trainingExperience},#{extendPropertys});
+	</insert>
+	<update id="update" parameterType="com.gitile.desktop.base.model.SysUserProfile" >
+		update sys_user_profile
+		<set> 
+			name = #{name},
+			sex = #{sex},
+			dept_id = #{deptId},
+			position_id = #{positionId},
+			id_card = #{idCard},
+			head_portrait = #{headPortrait},
+			native_place = #{nativePlace},
+			nation = #{nation},
+			birthday = #{birthday},
+			birthday_type = #{birthdayType},
+			work_time = #{workTime},
+			education = #{education},
+			entry_time = #{entryTime},
+			quit_time = #{quitTime},
+			propertys = #{propertys},
+			self_evaluation = #{selfEvaluation},
+			education_experience = #{educationExperience},
+			work_experience = #{workExperience},
+			training_experience = #{trainingExperience},
+			extend_propertys = #{extendPropertys},
+		</set> 
+		where id = #{id}
+	</update>
+	<update id="updateSelective" parameterType="com.gitile.desktop.base.model.SysUserProfile" >
+		update sys_user_profile
+		<set> 
+			<if test="name != null">name = #{name},</if>
+			<if test="sex != null">sex = #{sex},</if>
+			<if test="deptId != null">dept_id = #{deptId},</if>
+			<if test="positionId != null">position_id = #{positionId},</if>
+			<if test="idCard != null">id_card = #{idCard},</if>
+			<if test="headPortrait != null">head_portrait = #{headPortrait},</if>
+			<if test="nativePlace != null">native_place = #{nativePlace},</if>
+			<if test="nation != null">nation = #{nation},</if>
+			<if test="birthday != null">birthday = #{birthday},</if>
+			<if test="birthdayType != null">birthday_type = #{birthdayType},</if>
+			<if test="workTime != null">work_time = #{workTime},</if>
+			<if test="education != null">education = #{education},</if>
+			<if test="entryTime != null">entry_time = #{entryTime},</if>
+			<if test="quitTime != null">quit_time = #{quitTime},</if>
+			<if test="propertys != null">propertys = #{propertys},</if>
+			<if test="selfEvaluation != null">self_evaluation = #{selfEvaluation},</if>
+			<if test="educationExperience != null">education_experience = #{educationExperience},</if>
+			<if test="workExperience != null">work_experience = #{workExperience},</if>
+			<if test="trainingExperience != null">training_experience = #{trainingExperience},</if>
+			<if test="extendPropertys != null">extend_propertys = #{extendPropertys},</if>
+		</set> 
+		where id = #{id}
+	</update>
+	<sql id="Example_Where_Clause" >
+		<where>
+			<foreach collection="oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<sql id="Update_By_Example_Where_Clause" >
+		<where>
+			<foreach collection="example.oredCriteria" item="criteria" separator="or" >
+				<if test="criteria.valid" >
+					<trim prefix="(" suffix=")" prefixOverrides="and" >
+						<foreach collection="criteria.criteria" item="criterion" >
+							<choose >
+								<when test="criterion.noValue" >and ${criterion.condition}</when>
+								<when test="criterion.singleValue" >and ${criterion.condition} #{criterion.value}</when>
+								<when test="criterion.betweenValue" >and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}</when>
+								<when test="criterion.listValue" >
+									and ${criterion.condition}
+									<foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+										#{listItem}
+									</foreach>
+								</when>
+							</choose >
+						</foreach>
+					</trim>
+				</if>
+			</foreach>
+		</where>
+	</sql>
+	<select id="selectByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysUserProfileExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_user_profile
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+	</select>
+	<select id="selectListByExample" resultMap="BaseResultMap" parameterType="com.gitile.desktop.base.model.SysUserProfileExample" >
+		select
+		<if test="distinct" >
+			distinct
+		</if>
+		'true' as QUERYID,
+		<include refid="Base_Column_List" />
+		from sys_user_profile
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+		<if test="orderByClause != null" >
+			order by ${orderByClause}
+		</if>
+		<if test="limitByClause != null" >
+			limit ${limitByClause}
+		</if>
+	</select>
+	<select id="selectCountByExample" resultType="java.lang.Integer" parameterType="com.gitile.desktop.base.model.SysUserProfileExample" >
+		select count(*) from sys_user_profile
+		<if test="_parameter != null" >
+			<include refid="Example_Where_Clause" />
+		</if>
+	</select>
+	<update id="updateByExample" parameterType="map" >
+		update sys_user_profile
+		<set> 
+			name = #{record.name},
+			sex = #{record.sex},
+			dept_id = #{record.deptId},
+			position_id = #{record.positionId},
+			id_card = #{record.idCard},
+			head_portrait = #{record.headPortrait},
+			native_place = #{record.nativePlace},
+			nation = #{record.nation},
+			birthday = #{record.birthday},
+			birthday_type = #{record.birthdayType},
+			work_time = #{record.workTime},
+			education = #{record.education},
+			entry_time = #{record.entryTime},
+			quit_time = #{record.quitTime},
+			propertys = #{record.propertys},
+			self_evaluation = #{record.selfEvaluation},
+			education_experience = #{record.educationExperience},
+			work_experience = #{record.workExperience},
+			training_experience = #{record.trainingExperience},
+			extend_propertys = #{record.extendPropertys},
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+	<update id="updateByExampleSelective" parameterType="map" >
+		update sys_user_profile
+		<set> 
+			<if test="record.name != null">name = #{record.name},</if>
+			<if test="record.sex != null">sex = #{record.sex},</if>
+			<if test="record.deptId != null">dept_id = #{record.deptId},</if>
+			<if test="record.positionId != null">position_id = #{record.positionId},</if>
+			<if test="record.idCard != null">id_card = #{record.idCard},</if>
+			<if test="record.headPortrait != null">head_portrait = #{record.headPortrait},</if>
+			<if test="record.nativePlace != null">native_place = #{record.nativePlace},</if>
+			<if test="record.nation != null">nation = #{record.nation},</if>
+			<if test="record.birthday != null">birthday = #{record.birthday},</if>
+			<if test="record.birthdayType != null">birthday_type = #{record.birthdayType},</if>
+			<if test="record.workTime != null">work_time = #{record.workTime},</if>
+			<if test="record.education != null">education = #{record.education},</if>
+			<if test="record.entryTime != null">entry_time = #{record.entryTime},</if>
+			<if test="record.quitTime != null">quit_time = #{record.quitTime},</if>
+			<if test="record.propertys != null">propertys = #{record.propertys},</if>
+			<if test="record.selfEvaluation != null">self_evaluation = #{record.selfEvaluation},</if>
+			<if test="record.educationExperience != null">education_experience = #{record.educationExperience},</if>
+			<if test="record.workExperience != null">work_experience = #{record.workExperience},</if>
+			<if test="record.trainingExperience != null">training_experience = #{record.trainingExperience},</if>
+			<if test="record.extendPropertys != null">extend_propertys = #{record.extendPropertys},</if>
+		</set> 
+		<if test="_parameter != null" >
+			<include refid="Update_By_Example_Where_Clause" />
+		</if>
+	</update>
+</mapper>

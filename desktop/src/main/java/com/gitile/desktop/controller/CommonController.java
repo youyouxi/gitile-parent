@@ -32,4 +32,44 @@ public class CommonController {
 		return userService.findUserApplicationByRoleId(user.getRoleId());
 	}
 	
+	/**
+	 * 使用帮助
+	 */
+	@RequestMapping(value = "/common/help", method = RequestMethod.GET)
+	public String help(HttpServletRequest request, Model model) {
+		return "common/help.ftl";
+	}
+	
+	/**
+	 * 设置背景图片
+	 */
+	@RequestMapping(value = "/common/backgroud", method = RequestMethod.GET)
+	public String backgroud(HttpServletRequest request, Model model) {
+		return "common/backgroud.ftl";
+	}
+	
+	/**
+	 * 个人设置
+	 */
+	@RequestMapping(value = "/common/profile", method = RequestMethod.GET)
+	public String profile(HttpServletRequest request, Model model) {
+		return "common/profile.ftl";
+	}
+	
+	/**
+	 * 关于我们
+	 */
+	@RequestMapping(value = "/common/aboutus", method = RequestMethod.GET)
+	public String aboutus(HttpServletRequest request, Model model) {
+		return "common/aboutus.ftl";
+	}
+	
+	/**
+	 * 上传文件
+	 */
+	@RequestMapping(value = "/common/upload", method = RequestMethod.GET)
+	public String upload(HttpServletRequest request, Model model) {
+		return "common/upload.ftl";
+	}
+	
 }

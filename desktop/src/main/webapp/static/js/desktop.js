@@ -51,34 +51,46 @@ my.desktop = {
         my.desktop.loadApp();
     },
     loadApp:function(param, callback) {
-		$.ajax({
-			'url' : my.util.global.contextPath+'common/getUserApplicaions',
-			'data' : param,
-			'type' : 'GET',
-			'dataType' : 'json',
-			'async'	   : true,
-			'beforeSend' : function() {
-			},
-			'success' : function(data) {
-				callback(data);
-			},
-			'error'  : function(e) {
-			}
-		});
+    	$("#fileContiner").html('');
+    	var param = {};
+    	my.desktop.service.getMyApp(param, function(data) {
+    		if(data && data.length > 0) {
+    			var html = "";
+    			for(var i=0; i<data.length; i++) {
+                	var id = data[i]['id'];
+                    var name = data[i]['name'] || '--';
+                    var icon = data[i]['icon'] || '';
+                    var simple = data[i]['simple'] || '0';
+                    var resize = data[i]['resize'] || '0';
+                    var height = data[i]['height'] || '600';
+                    var width = data[i]['width'] || '800';
+                    var appUrl = data[i]['appUrl'] || '';
+                    var authorize = data[i]['authorize'] || '0';
+                    var menuCss = 'menuDefault';
+                    if(authorize==1) {
+                    	menuCss = 'menuApp';
+                    }
+                    html += '<div class="file systemBox '+menuCss+'" data-app=\'{"name":"'+name+'","simple":'+simple+',"resize":'+resize+',"width":"'+width+'","height":"'+height+'","content":"'+appUrl+'","icon":"'+icon+'"}\'>'
+    				+'<div class="ico" style="background-image:url('+my.util.global.staticPath+'/images/app/'+icon+')"></div>'
+    				+'<div class="titleBox"><span>'+name+'</span></div></div>';
+                }
+    			$("#fileContiner").hide().html(html).fadeIn(200);
+    		}
+    	});
 	},
     setWall:function(imgUrl){
         $('.wallbackground').attr('src',imgUrl).one('load',function(){
             $('#ui-desktop').css('background-image','url('+imgUrl+')');
         });
     },
-    openWindow:function(titile,url) {
+    openWindow:function(titile,url, width, height) {
         $.dialog.open(url,{
             title:titile,
             fixed:true,
             ico: my.util.global.staticPath+'/images/app/computer.png',
             resize:1,
-            width:800,
-            height:500
+            width:width,
+            height:height
         });
     },
     openApp:function(app) {
@@ -108,7 +120,31 @@ my.desktop = {
                 height:app.height
             });
         } 
-    }
+    },
+    fullScreen:function(){
+		if ($('body').attr('fullScreen') == 'true') {
+			my.desktop.exitfullScreen();
+		}
+		$('body').attr('fullScreen','true');
+		var docElm = document.documentElement;			
+        if (docElm.requestFullscreen) {
+            docElm.requestFullscreen();
+        }else if (docElm.mozRequestFullScreen) {
+            docElm.mozRequestFullScreen();
+        } else if (docElm.webkitRequestFullScreen) {
+            docElm.webkitRequestFullScreen();
+        }
+	},
+	exitfullScreen:function(){
+		$('body').attr('fullScreen','false');
+		if (document.exitFullscreen) {
+		    document.exitFullscreen();
+		}else if(document.mozCancelFullScreen) {
+		    document.mozCancelFullScreen();
+		}else if(document.webkitCancelFullScreen) {
+		    document.webkitCancelFullScreen();
+		}
+	},
 };
 //任务栏
 my.desktop.task={
@@ -225,10 +261,10 @@ my.desktop.rightMenu={
                 switch(key){
                     //桌面
                     case 'refresh':my.desktop.refresh();break;
-                    case 'full':alert("full");break;
-                    case 'upload':alert("upload");break;
-                    case 'app_install':alert("app_install");break;
-                    case 'setting':my.desktop.openWindow("系统设置","setting.html");
+                    case 'full':my.desktop.fullScreen();break;
+                    case 'upload':my.desktop.openWindow('上传', my.util.global.contextPath+'common/upload', 300, 400);break;
+                    case 'backgroud':my.desktop.openWindow('桌面背景', my.util.global.contextPath+'common/backgroud', 800, 500);break;
+                    case 'setting':my.desktop.openWindow('系统设置', my.util.global.contextPath+'common/profile', 800, 500);break;
                     default:break;
                 }
             },
@@ -238,7 +274,7 @@ my.desktop.rightMenu={
                 "sep1":"--------",   
                 "upload":{name:"上传",icon:"cloud-upload",accesskey: "u"},
                 "sep2":"--------", 
-                "app_install":{name:"应用商店",icon:"game-controller",accesskey: "a"},
+                "backgroud":{name:"桌面背景",icon:"picture",accesskey: "b"},
                 "setting":{name:"系统设置",icon:"settings",accesskey: "s"}
             }
         });
@@ -303,6 +339,27 @@ my.desktop.rightMenu={
         });
     }
 }
+my.desktop.service = {
+	// 获取我的应用
+	getMyApp:function(param, callback) {
+		$.ajax({
+			'url' : my.util.global.contextPath+'common/getUserApplicaions',
+			'data' : param,
+			'type' : 'GET',
+			'dataType' : 'json',
+			'async'	   : false,
+			'beforeSend' : function() {
+			},
+			'success' : function(data) {
+				callback(data);
+			},
+			'error'  : function(e) {
+			}
+		});
+	},
+	
+	
+};
 
 $(document).ready(function(){
 	my.util.ajaxInit();

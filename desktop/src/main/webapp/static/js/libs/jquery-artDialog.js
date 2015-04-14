@@ -131,9 +131,9 @@ artDialog.fn = artDialog.prototype = {
 		//是否可以调节大小 对应样式处理
 		if (config.simple && config.title != false) {
 			DOM.wrap.addClass('dialog-simple');
-			DOM.wrap.die('mouseenter').live('mouseenter',function(){
+			DOM.wrap.on('mouseenter', "", function (e) {
 				$(this).find('.aui_outer').addClass('dialog_mouse_in');
-			}).live('mouseleave',function(){
+			}).on('mouseleave', "", function(){
 				$(this).find('.aui_outer').removeClass('dialog_mouse_in');
 			});
 		}
