@@ -45,7 +45,7 @@
 			<li><a href="#" onclick="my.desktop.openWindow('下载目录', '${contextPath}/user/dowload', 800, 500);"><span>下载目录</span></a></li>
 			<li><div id="rightspliter"></div></li>
             <li><a href="#" onclick="my.desktop.openWindow('桌面背景', '${contextPath}/common/backgroud', 800, 500);"><span>桌面背景</span></a></li>
-            <li><a href="#" onclick="my.desktop.openWindow('系统设置', '${contextPath}/common/profile', 800, 500);"><span>系统设置</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/profile', 800, 500);"><span>个人设置</span></a></li>
             <li><div id="rightspliter"></div></li>
             <li><a href="#" onclick="my.desktop.openWindow('关于我们', '${contextPath}/common/aboutus', 800, 500);"><span>关于我们</span></a></li>
             <li><a href="#" onclick="my.desktop.openWindow('使用帮助', '${contextPath}/common/help', 800, 500);"><span>使用帮助</span></a></li>
@@ -56,6 +56,7 @@
     <script src="${contextPath}/static/js/libs/jquery.cookie.js"></script>
     <script src="${contextPath}/static/js/libs/jquery-artDialog.js"></script>
     <script src="${contextPath}/static/js/libs/jquery-contextMenu.js"></script>
+    <script src="${contextPath}/static/js/libs/mousetrap.min.js"></script>
     <script src="${contextPath}/static/js/common.js"></script>
 	<script src="${contextPath}/static/js/desktop.js"></script>
 </body>

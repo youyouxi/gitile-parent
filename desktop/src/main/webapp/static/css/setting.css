@@ -6,7 +6,7 @@
 #ui-setting input:focus { border-color: #75A1F0 !important; outline: none; box-shadow: 0 0 12px #75A1F0; -webkit-transition: all 0.218s; -moz-transition: all 0.218s; -o-transition: all 0.218s; -ms-transition: all 0.218s; transition: all 0.218s;}
 #ui-setting .font-icon { padding-right: 0.8em; display: inline-block;}
 #ui-setting .menu_left { min-width: 170px; position: fixed; z-index: 999; left: 0; height: 100%; width: 20%; background: #4265a4;}
-#ui-setting .menu_left h1 { color: #fff; font-weight: 400; padding: 15px 20px 20px 40px; font-size: 30px; margin: 0; font-family: Helvetica, "Helvetica Neue", "Century Gothic", "微软雅黑", "Microsoft Yahei", "STXihei";}
+#ui-setting .menu_left h1 { color: #fff; font-weight: 400; padding: 30px 20px 30px 30px; font-size: 20px; margin: 0; font-family: Helvetica, "Helvetica Neue", "Century Gothic", "微软雅黑", "Microsoft Yahei", "STXihei";}
 #ui-setting .menu_left .setting li { line-height: 2.5em; color: #fff; font-size: 15px; box-sizing: border-box; text-indent: 10px; display: block; cursor: pointer; outline: none; -webkit-transition: padding 0.2s; -moz-transition: padding 0.2s; -o-transition: padding 0.2s; -ms-transition: padding 0.2s; transition: padding 0.2s; border-left: 4px solid #4265a4;}
 #ui-setting .menu_left .setting li.hover { background: #5c7fbd; border-left: 4px solid #5c7fbd;}
 #ui-setting .menu_left .setting li.selected { background: #5579ba; border-left: 4px solid #fff; padding-left: 20px;}

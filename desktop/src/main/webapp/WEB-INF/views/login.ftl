@@ -10,7 +10,6 @@
     <title>登录页面 - 后台管理系统</title>
     <link rel="shortcut icon" href="${contextPath}/static/images/logo.png">
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/jquery.gritter.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css" media="screen" />
 </head>
 <body oncontextmenu="return false;">
@@ -51,7 +50,6 @@
 		XXXX科技有限公司
 	</div>
     <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js"></script>
-    <script src="${contextPath}/static/js/libs/jquery.gritter.min.js"></script>
     <script src="${contextPath}/static/js/libs/jquery.backstretch.min.js"></script>
     <script src="${contextPath}/static/js/common.js"></script>
     <script src="${contextPath}/static/js/login.js"></script>

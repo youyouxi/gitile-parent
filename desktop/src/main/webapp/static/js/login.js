@@ -82,11 +82,7 @@ my.login = {
         });
     },
     showLoginError:function(msg) {
-    	$.gritter.add({
-			title:	'提示',
-			text:	msg,
-			sticky: false
-		});
+    	tips(msg, 'error');
     },
 };
 my.login.loginStatus = {

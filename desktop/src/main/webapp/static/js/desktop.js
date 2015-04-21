@@ -1,5 +1,8 @@
 my.register('my.desktop');
+
 my.desktop = {
+	ctrlKey:false, // 是否按下ctrl
+    shiftKey:false, // 是否按下shift
     init:function() {
         $("#fileContiner").on('mouseenter', ".file", function (e) {
             $(this).addClass("hover");
@@ -40,6 +43,52 @@ my.desktop = {
             $("#menuwin").css("display", "none");
         });
         my.desktop.refresh();
+        my.desktop.bindHotKey();
+    },
+    bindHotKey:function() {
+    	// 去除所有按键事件
+    	$(document).keydown(function (e){
+    		if (my.desktop.rightMenu.isDisplay()) return true;
+    		var result = false;
+    		switch(e.keyCode){
+    			case 9:result=true;break;//tab
+    			case 13:result=true;break;//enter
+    			case 35:tips("end");break;
+    			case 36:tips('home');break;
+    			case 37:tips('left');break;
+    			case 38:tips('up');break;
+    			case 39:tips('right');break;
+    			case 40:tips('down');break;
+				case 123:result=true;break;//f12
+				default:result=false;break;	
+			}
+//    		console.log(e.keyCode);
+			return result;
+    	});
+    	// 刷新桌面应用
+    	Mousetrap.bind(['f5'],function(e) {
+    		stopEP(e);
+    		my.desktop.refresh();
+        });
+    	// 刷新浏览器页面
+    	Mousetrap.bind(['ctrl+f5'],function(e) {
+    		stopEP(e);
+    		location.reload();
+        });
+    	// 全屏
+    	Mousetrap.bind(['f11'],function(e) {
+    		stopEP(e);
+    		my.desktop.fullScreen();
+        });
+    	// 显示开始菜单
+    	Mousetrap.bind(['ctrl+x'],function(e) {
+    		stopEP(e);
+    		if ($("#menuwin").css("display")=='block') {
+                $("#menuwin").css("display", "none");
+            } else {
+                $("#menuwin").css("display", "block");
+            }
+        });
     },
     refresh:function() {
     	var background = $.cookie('background')||'7.jpg';
@@ -124,16 +173,17 @@ my.desktop = {
     fullScreen:function(){
 		if ($('body').attr('fullScreen') == 'true') {
 			my.desktop.exitfullScreen();
+		} else {
+			$('body').attr('fullScreen','true');
+			var docElm = document.documentElement;			
+	        if (docElm.requestFullscreen) {
+	            docElm.requestFullscreen();
+	        }else if (docElm.mozRequestFullScreen) {
+	            docElm.mozRequestFullScreen();
+	        } else if (docElm.webkitRequestFullScreen) {
+	            docElm.webkitRequestFullScreen();
+	        }
 		}
-		$('body').attr('fullScreen','true');
-		var docElm = document.documentElement;			
-        if (docElm.requestFullscreen) {
-            docElm.requestFullscreen();
-        }else if (docElm.mozRequestFullScreen) {
-            docElm.mozRequestFullScreen();
-        } else if (docElm.webkitRequestFullScreen) {
-            docElm.webkitRequestFullScreen();
-        }
 	},
 	exitfullScreen:function(){
 		$('body').attr('fullScreen','false');
@@ -246,6 +296,23 @@ my.desktop.rightMenu={
     hidden:function(){
         $('.context-menu-list').filter(':visible').trigger('contextmenu:hide');
     },
+    show:function(select,left,top){
+        if (!select) return;
+        if(my.desktop.rightMenu.isDisplay()) {
+        	my.desktop.rightMenu.hidden();
+        } else {
+        	$(select).contextMenu({x:left, y:top});
+        }
+    },
+    isDisplay:function(){//检测是否有右键菜单
+        var display = false;
+        $('.context-menu-list').each(function(){
+            if($(this).css("display") !="none"){
+                display = true;
+            }
+        });
+        return display;
+    },
     contextMenu:function(event){
         my.desktop.rightMenu.hidden();
         if ($("#menuwin").css("display")=='block') {
@@ -264,7 +331,7 @@ my.desktop.rightMenu={
                     case 'full':my.desktop.fullScreen();break;
                     case 'upload':my.desktop.openWindow('上传', my.util.global.contextPath+'common/upload', 300, 400);break;
                     case 'backgroud':my.desktop.openWindow('桌面背景', my.util.global.contextPath+'common/backgroud', 800, 500);break;
-                    case 'setting':my.desktop.openWindow('系统设置', my.util.global.contextPath+'common/profile', 800, 500);break;
+                    case 'setting':my.desktop.openWindow('个人设置', my.util.global.contextPath+'common/profile', 800, 500);break;
                     default:break;
                 }
             },
@@ -275,7 +342,7 @@ my.desktop.rightMenu={
                 "upload":{name:"上传",icon:"cloud-upload",accesskey: "u"},
                 "sep2":"--------", 
                 "backgroud":{name:"桌面背景",icon:"picture",accesskey: "b"},
-                "setting":{name:"系统设置",icon:"settings",accesskey: "s"}
+                "setting":{name:"个人设置",icon:"settings",accesskey: "s"}
             }
         });
     },
@@ -356,11 +423,8 @@ my.desktop.service = {
 			'error'  : function(e) {
 			}
 		});
-	},
-	
-	
+	}
 };
-
 $(document).ready(function(){
 	my.util.ajaxInit();
     my.desktop.init();
