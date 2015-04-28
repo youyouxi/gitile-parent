@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>登录页面 - 后台管理系统</title>
     <link rel="shortcut icon" href="${contextPath}/static/images/logo.png">
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css" media="screen" />
     <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css" media="screen" />
 </head>
@@ -32,7 +33,7 @@
 			<div class="inputs">
 				<div><span>用户名：</span><input id="username" name='username' type="text" placeholder="用户名" /> </div> 
 				<div><span>密　码：</span><input id="password" name='password' type="password" placeholder="密码" /></div>
-                <div id="checkCodeDiv" data-target="0" class='check_code'><span>验证码：</span><input id='checkCode' name='checkCode' class="check_code" type="text" placeholder="验证码" /> <img id="checkCodeImage" onclick="this.src='${contextPath}/checkCodeImage'" />
+                <div id="checkCodeDiv" data-target="0" class='check_code'><span>验证码：</span><input id='checkCode' name='checkCode' class="check_code" type="text" placeholder="验证码" /> <img id="checkCodeImage" />
                 <div style="clear:both;"></div></div>
 			</div>
 			<div class="actions">

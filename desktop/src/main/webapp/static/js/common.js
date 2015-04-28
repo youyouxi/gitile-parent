@@ -105,6 +105,18 @@ my.util.ajaxInit=function() {
 		}
 	});
 }
+// 通用左边菜单
+my.util.leftMenuInit=function() {
+	$(".setting li").hover(function(){
+		$(this).addClass("hover");
+	},  function(){ 
+		$(this).removeClass("hover");
+	});
+	$(".setting li").on('click',function (e) {
+		var url = $(this).attr("target_url");
+		top.artDialog.focus.refreshUrl(url);
+    });
+}
 //添加startWith原生方法
 String.prototype.startWith=function(s){
   if(s==null||s==""||this.length==0||s.length>this.length) {
@@ -195,7 +207,7 @@ var Tips =  (function(){
 		var tipsIDname = "messageTips";
 		var tipsID = "#"+tipsIDname;
 		if ($(tipsID).length ==0) {
-			var html = '<div id="'+tipsIDname+'" style="z-index:50;min-width:60px;position:fixed;padding:2px 2em;text-align:center;line-height:30px;border-bottom-right-radius:4px;border-bottom-left-radius:4px;"><i style="padding: 0 6px;font-size: 15px;"></i><span></span></div>'
+			var html = '<div id="'+tipsIDname+'" style="z-index:50;min-width:60px;position:fixed;padding:2px 2em;text-align:center;line-height:30px;border-bottom-right-radius:0px;border-bottom-left-radius:0px;"><i style="padding: 0 6px;font-size: 15px;"></i><span></span></div>'
 			$('body').append(html);	
 			$(window).bind('resize',function(){
 				if ($(tipsID).css('display') =="none") return;
@@ -208,11 +220,11 @@ var Tips =  (function(){
 			case 100://加长时间 5s
 			case true:
 			case undefined:
-			case 'succcess':color = '#5cb85c';icon = 'icon-ok';break;
+			case 'success':color = '#5cb85c';icon = 'icon-check';break;
 			case 'info':color = '#519AF6';icon = 'icon-info';break;
-			case 'warning':color = '#ed9c28';icon = 'icon-exclamation';break;
+			case 'warning':color = '#ed9c28';icon = 'icon-bulb';break;
 			case false:
-			case 'error':color = '#d9534f';icon = 'icon-remove';break;
+			case 'error':color = '#d9534f';icon = 'icon-close';break;
 			default:color = '';icon = '';break;
 		}
 

@@ -14,6 +14,12 @@ my.login = {
 				duration: 8000
 		   }
 		);
+		$("body").on('click', "#checkCodeImage", function (e) {
+            //再次绑定，防止冒泡到html的click事件
+            stopEP(e);
+            $("#checkCodeImage").attr("src", my.util.global.contextPath+"checkCodeImage?t="+Math.random());
+            alert(1);
+        })
     },
     initLoginForm:function() {
     	// 监听回车键
@@ -68,7 +74,7 @@ my.login = {
                     	var show = $("#checkCodeDiv").attr('data-target');
                     	if(show==0) {
                     		$("#checkCodeDiv").attr('data-target', 1);
-                    		$("#checkCodeImage").trigger("click");
+                    		$("#checkCodeImage").attr("src", my.util.global.contextPath+"checkCodeImage");
                             $('#checkCodeDiv').show();
                     	} else {
                     		$("#checkCodeImage").trigger("click");

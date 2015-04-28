@@ -330,7 +330,7 @@ my.desktop.rightMenu={
                     case 'refresh':my.desktop.refresh();break;
                     case 'full':my.desktop.fullScreen();break;
                     case 'upload':my.desktop.openWindow('上传', my.util.global.contextPath+'common/upload', 300, 400);break;
-                    case 'backgroud':my.desktop.openWindow('桌面背景', my.util.global.contextPath+'common/backgroud', 800, 500);break;
+                    case 'backgroud':my.desktop.openWindow('个人设置', my.util.global.contextPath+'common/backgroud', 800, 500);break;
                     case 'setting':my.desktop.openWindow('个人设置', my.util.global.contextPath+'common/profile', 800, 500);break;
                     default:break;
                 }
@@ -341,7 +341,7 @@ my.desktop.rightMenu={
                 "sep1":"--------",   
                 "upload":{name:"上传",icon:"cloud-upload",accesskey: "u"},
                 "sep2":"--------", 
-                "backgroud":{name:"桌面背景",icon:"picture",accesskey: "b"},
+                "backgroud":{name:"更换壁纸",icon:"picture",accesskey: "b"},
                 "setting":{name:"个人设置",icon:"settings",accesskey: "s"}
             }
         });

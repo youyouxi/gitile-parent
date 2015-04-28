@@ -1,17 +1,20 @@
 my.register('my.common');
-my.common = {
+my.common.profile = {
     init:function() {
-    	$(".setting li").hover(function(){
-    		$(this).addClass("hover");
-    	},  function(){ 
-    		$(this).removeClass("hover");
-    	});
-    	$(".setting li").on('click',function (e) {
-    		var url = $(this).attr("target_url");
-    		window.location=url;
-        });
+    	
     }
 };
 $(document).ready(function(){
-    my.common.init();
+	my.util.leftMenuInit();
+	my.common.profile.init();
+	//去除所有按键事件
+	$(document).keydown(function (e){
+//		console.log(e.keyCode);
+		return false;
+	});
+	// 刷新桌面应用
+	Mousetrap.bind(['f5'],function(e) {
+		stopEP(e);
+		top.artDialog.focus.refresh();
+    });
 });

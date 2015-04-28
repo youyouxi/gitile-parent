@@ -44,11 +44,11 @@
 			<li><a href="#" onclick="my.desktop.openWindow('共享文件', '${contextPath}/user/share', 800, 500);"><span>共享文件</span></a></li>
 			<li><a href="#" onclick="my.desktop.openWindow('下载目录', '${contextPath}/user/dowload', 800, 500);"><span>下载目录</span></a></li>
 			<li><div id="rightspliter"></div></li>
-            <li><a href="#" onclick="my.desktop.openWindow('桌面背景', '${contextPath}/common/backgroud', 800, 500);"><span>桌面背景</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/backgroud', 800, 500);"><span>桌面背景</span></a></li>
             <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/profile', 800, 500);"><span>个人设置</span></a></li>
             <li><div id="rightspliter"></div></li>
-            <li><a href="#" onclick="my.desktop.openWindow('关于我们', '${contextPath}/common/aboutus', 800, 500);"><span>关于我们</span></a></li>
-            <li><a href="#" onclick="my.desktop.openWindow('使用帮助', '${contextPath}/common/help', 800, 500);"><span>使用帮助</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/aboutus', 800, 500);"><span>关于我们</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/help', 800, 500);"><span>使用帮助</span></a></li>
 			<li><a href="${contextPath}/logout" style="margin-top:82px;"><span>安全退出</span></a></li>            
 		</ul>
 	</div>
