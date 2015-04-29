@@ -18,6 +18,7 @@ import com.gitile.desktop.base.dao.SysUserDao;
 import com.gitile.desktop.base.dao.SysUserProfileDao;
 import com.gitile.desktop.base.dto.SessionUser;
 import com.gitile.desktop.base.model.SysApplication;
+import com.gitile.desktop.base.model.SysApplicationRight;
 import com.gitile.desktop.base.model.SysRole;
 import com.gitile.desktop.base.model.SysUser;
 import com.gitile.desktop.base.model.SysUserExample;
@@ -167,6 +168,11 @@ public class UserServiceImpl implements UserService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public List<SysApplicationRight> findUserApplicationMenu(String roleId, Long appId) {
+		return sysRoleDao.findUserApplicationMenu(roleId, appId);
 	}
 
 }

@@ -19,11 +19,13 @@
 		</table>
 		<table name="sys_application_right" comment="应用菜单权限">
 			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
+			<column name="icon" type="VARCHAR" length="200" digits="0" caption="图标" notnull="false"/>
 			<column name="app_id" type="BIGINT" length="19" digits="0" caption="应用编号" notnull="true"/>
 			<column name="parent_id" type="BIGINT" length="19" digits="0" caption="父类编号" notnull="true"/>
 			<column name="name" type="VARCHAR" length="200" digits="0" caption="名称" notnull="true"/>
 			<column name="right_type" type="TINYINT" length="3" digits="0" caption="类型（1：分类、2：菜单、3：权限）" notnull="true"/>
 			<column name="right_url" type="VARCHAR" length="500" digits="0" caption="权限地址" notnull="false"/>
+			<column name="sort" type="INT" length="10" digits="0" caption="排序" notnull="true"/>
 			<primary column="id" />
 		</table>
 		<table name="sys_area" comment="地区信息表">

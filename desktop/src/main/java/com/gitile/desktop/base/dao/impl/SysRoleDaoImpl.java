@@ -5,13 +5,16 @@
  */
 package com.gitile.desktop.base.dao.impl;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
 import com.gitile.core.mybatis.dao.BaseDaoImpl;
 import com.gitile.desktop.base.dao.SysRoleDao;
 import com.gitile.desktop.base.model.SysApplication;
+import com.gitile.desktop.base.model.SysApplicationRight;
 import com.gitile.desktop.base.model.SysRole;
 
 /**
@@ -28,6 +31,14 @@ public class SysRoleDaoImpl extends BaseDaoImpl<SysRole> implements SysRoleDao<S
 	@Override
 	public List<SysApplication> selectApplicationByRoleId(String roleId) {
 		return sqlSessionTemplate.selectList(getSqlName("selectApplicationByRoleId"), roleId);
+	}
+
+	@Override
+	public List<SysApplicationRight> findUserApplicationMenu(String roleId, Long appId) {
+		Map<String, Object> param = new HashMap<String, Object>();
+		param.put("roleId", roleId);
+		param.put("appId", appId);
+		return sqlSessionTemplate.selectList(getSqlName("findUserApplicationMenu"), param);
 	}
 
 }

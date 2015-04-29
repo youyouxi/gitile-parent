@@ -1,6 +1,6 @@
 <#assign contextPath=springMacroRequestContext.getContextPath() />
 <#import "/layout/common.ftl" as dk>
-<@dk.head "更换壁纸">
+<@dk.head "关于我们">
 	<link rel="stylesheet" type="text/css" href="${contextPath}/static/css/setting.css?version=20150429" media="screen" />
 </@dk.head>
 

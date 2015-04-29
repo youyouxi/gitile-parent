@@ -19,4 +19,14 @@
 		WHERE sra.app_id=sa.id AND sra.role_id = #{roleId}
 	</select>
 
+	<select id="findUserApplicationMenu" 
+	    resultMap="com.gitile.desktop.base.model.SysApplicationRight.BaseResultMap" 
+	    parameterType="java.util.Map" >
+		SELECT 
+			sar.id,sar.icon,sar.app_id,sar.parent_id,sar.name,sar.right_type,sar.right_url,sar.sort 
+		FROM sys_role_application_right srar 
+		LEFT JOIN sys_application_right sar ON sar.id=srar.right_id
+		WHERE srar.app_id=#{appId} AND srar.role_id=#{roleId} AND sar.parent_id=0 AND right_type=2
+	</select>
+
 </mapper>

@@ -9,6 +9,7 @@ import java.util.List;
 
 import com.gitile.core.mybatis.dao.BaseDao;
 import com.gitile.desktop.base.model.SysApplication;
+import com.gitile.desktop.base.model.SysApplicationRight;
 
 /**
  * 系统角色数据库操作
@@ -28,5 +29,13 @@ public interface SysRoleDao<T> extends BaseDao<T> {
 	 * @return
 	 */
 	List<SysApplication> selectApplicationByRoleId(String roleId);
+
+	/**
+	 * 获取角色应用菜单
+	 * @param roleId
+	 * @param appId
+	 * @return
+	 */
+	List<SysApplicationRight> findUserApplicationMenu(String roleId, Long appId);
 	
 }

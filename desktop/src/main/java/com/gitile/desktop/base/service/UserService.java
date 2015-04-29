@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.gitile.desktop.base.model.SysApplication;
+import com.gitile.desktop.base.model.SysApplicationRight;
 import com.gitile.desktop.base.model.SysUser;
 
 /**
@@ -43,5 +44,13 @@ public interface UserService {
 	 * @return
 	 */
 	boolean updateUser(SysUser update);
+
+	/**
+	 * 获取应用的一级菜单
+	 * @param roleId
+	 * @param l
+	 * @return
+	 */
+	List<SysApplicationRight> findUserApplicationMenu(String roleId, Long appId);
 
 }
