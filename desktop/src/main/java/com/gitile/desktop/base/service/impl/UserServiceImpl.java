@@ -155,4 +155,18 @@ public class UserServiceImpl implements UserService {
 		return sysRoleDao.selectApplicationByRoleId(roleId);
 	}
 
+	@Override
+	public SysUser findUser(Long id) {
+		return sysUserDao.selectById(id);
+	}
+
+	@Override
+	public boolean updateUser(SysUser update) {
+		int result = sysUserDao.updateSelective(update);
+		if(result>0) {
+			return true;
+		}
+		return false;
+	}
+
 }

@@ -7,9 +7,9 @@
 	    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	    <title>${title} - 后台管理系统</title>
 	    <link rel="shortcut icon" href="${contextPath}/static/images/logo.png">
-	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css" media="screen" />
-	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/dialog.css" media="screen" />
-	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css" media="screen" />
+	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css?version=20150429" media="screen" />
+	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/dialog.css?version=20150429" media="screen" />
+	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css?version=20150429" media="screen" />
 		<#nested>
 	</head>
 </#macro>
@@ -30,9 +30,9 @@
 	</div>
 </#macro>
 <#macro end>
-		<script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js"></script>
-		<script src="${contextPath}/static/js/libs/mousetrap.min.js"></script>
-		<script src="${contextPath}/static/js/common.js"></script>
+		<script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js?version=20150429"></script>
+		<script src="${contextPath}/static/js/libs/mousetrap.min.js?version=20150429"></script>
+		<script src="${contextPath}/static/js/common.js?version=20150429"></script>
 		<#nested>
 	</body>
 </html>

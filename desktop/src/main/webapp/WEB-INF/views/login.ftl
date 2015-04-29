@@ -9,9 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>登录页面 - 后台管理系统</title>
     <link rel="shortcut icon" href="${contextPath}/static/images/logo.png">
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css?version=20150429" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css?version=20150429" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/login.css?version=20150429" media="screen" />
 </head>
 <body oncontextmenu="return false;">
     <div id="ui-preloader">
@@ -50,9 +50,9 @@
     <div class="footer">
 		XXXX科技有限公司
 	</div>
-    <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js"></script>
-    <script src="${contextPath}/static/js/libs/jquery.backstretch.min.js"></script>
-    <script src="${contextPath}/static/js/common.js"></script>
-    <script src="${contextPath}/static/js/login.js"></script>
+    <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/libs/jquery.backstretch.min.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/common.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/login.js?version=20150429"></script>
 </body>
 </html>

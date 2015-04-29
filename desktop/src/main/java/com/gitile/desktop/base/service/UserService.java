@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import com.gitile.desktop.base.model.SysApplication;
+import com.gitile.desktop.base.model.SysUser;
 
 /**
  * 用户相关操作
@@ -28,5 +29,19 @@ public interface UserService {
 	 * @return
 	 */
 	List<SysApplication> findUserApplicationByRoleId(String roleId);
+
+	/**
+	 * 获取用户信息
+	 * @param id
+	 * @return
+	 */
+	SysUser findUser(Long id);
+
+	/**
+	 * 更新用户信息
+	 * @param update
+	 * @return
+	 */
+	boolean updateUser(SysUser update);
 
 }

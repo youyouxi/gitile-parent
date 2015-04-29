@@ -18,7 +18,6 @@ my.login = {
             //再次绑定，防止冒泡到html的click事件
             stopEP(e);
             $("#checkCodeImage").attr("src", my.util.global.contextPath+"checkCodeImage?t="+Math.random());
-            alert(1);
         })
     },
     initLoginForm:function() {
@@ -38,7 +37,6 @@ my.login = {
 		var username = $('#username').val();
 		var password = $('#password').val();
 		var checkCode = $('#checkCode').val();
-		console.log(username);
 		if(isEmpty(username)) {
 			my.login.showLoginError('请输入用户名');
 			$('#username').focus();

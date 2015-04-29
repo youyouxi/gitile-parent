@@ -91,12 +91,8 @@ my.desktop = {
         });
     },
     refresh:function() {
-    	var background = $.cookie('background')||'7.jpg';
-    	var backgroundImageUrl = my.util.global.staticPath+"/images/wallpaper/"+background;
-    	if(background.startWith('http')) {
-    		backgroundImageUrl = background;
-    	}
-        my.desktop.setWall(backgroundImageUrl);
+    	var background = $.cookie('background')||'';
+        my.desktop.setWall(background);
         my.desktop.loadApp();
     },
     loadApp:function(param, callback) {
@@ -128,8 +124,13 @@ my.desktop = {
     	});
 	},
     setWall:function(imgUrl){
+    	if(isEmpty(imgUrl)) {
+    		imgUrl = my.util.global.staticPath+"/images/wallpaper/7.jpg";
+    		$.cookie('background', imgUrl);
+    	}
         $('.wallbackground').attr('src',imgUrl).one('load',function(){
             $('#ui-desktop').css('background-image','url('+imgUrl+')');
+            $.cookie('background', imgUrl);
         });
     },
     openWindow:function(titile,url, width, height) {

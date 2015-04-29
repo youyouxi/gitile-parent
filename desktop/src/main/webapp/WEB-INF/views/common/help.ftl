@@ -1,7 +1,7 @@
 <#assign contextPath=springMacroRequestContext.getContextPath() />
 <#import "/layout/common.ftl" as dk>
 <@dk.head "使用帮助">
-	<link rel="stylesheet" type="text/css" href="${contextPath}/static/css/setting.css" media="screen" />
+	<link rel="stylesheet" type="text/css" href="${contextPath}/static/css/setting.css?version=20150429" media="screen" />
 </@dk.head>
 
 <@dk.defaultFrame "help">
@@ -22,5 +22,5 @@
 </@dk.defaultFrame>
 
 <@dk.end>
-	<script src="${contextPath}/static/js/common/profile.js"></script>
+	<script src="${contextPath}/static/js/common/common.js"></script>
 </@dk.end>

@@ -9,11 +9,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
     <title>我的桌面 - 后台管理系统</title>
     <link rel="shortcut icon" href="${contextPath}/static/images/logo.png">
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/dialog.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/desktop.css" media="screen" />
-    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/themes/default.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css?version=20150429" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/dialog.css?version=20150429" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css?version=20150429" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/desktop.css?version=20150429" media="screen" />
+    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/themes/default.css?version=20150429" media="screen" />
 </head>
 <body oncontextmenu="return my.desktop.rightMenu.contextMenu();">
     <div id="ui-preloader">
@@ -52,12 +52,12 @@
 			<li><a href="${contextPath}/logout" style="margin-top:82px;"><span>安全退出</span></a></li>            
 		</ul>
 	</div>
-    <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js"></script>
-    <script src="${contextPath}/static/js/libs/jquery.cookie.js"></script>
-    <script src="${contextPath}/static/js/libs/jquery-artDialog.js"></script>
-    <script src="${contextPath}/static/js/libs/jquery-contextMenu.js"></script>
-    <script src="${contextPath}/static/js/libs/mousetrap.min.js"></script>
-    <script src="${contextPath}/static/js/common.js"></script>
-	<script src="${contextPath}/static/js/desktop.js"></script>
+    <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/libs/jquery.cookie.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/libs/jquery-artDialog.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/libs/jquery-contextMenu.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/libs/mousetrap.min.js?version=20150429"></script>
+    <script src="${contextPath}/static/js/common.js?version=20150429"></script>
+	<script src="${contextPath}/static/js/desktop.js?version=20150429"></script>
 </body>
 </html>

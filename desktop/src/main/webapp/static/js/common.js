@@ -69,39 +69,23 @@ my.util.ajaxInit=function() {
 	jQuery(document).ajaxSend(function(e,XHR,options){
 		// 开始发送
 	}).ajaxError(function(e,XHR,settings,thrownError){
-		$.gritter.add({
-			title:	'提示',
-			text:	'连接服务器时发生错误.请再试一次！',
-			sticky: true
-		});
+		tips('连接服务器时发生错误.请再试一次！', 'error');
 	}).ajaxComplete(function(e, XHR, options){
 		try {
 			var str = XHR.getAllResponseHeaders();
 			if (str.indexOf("sessionstatus") >= 0) {
 				//提示消息
-				$.gritter.add({
-					title:	'提示',
-					text:	'登录超时.请重新登录！',
-					sticky: true
-				});
+				tips('登录超时.请重新登录！', 'warning');
 			} else if (str.indexOf("authstatus") >= 0) {
 				//提示消息
-				$.gritter.add({
-					title:	'提示',
-					text:	'对不起，您没有操作权限,请联系管理员！',
-					sticky: true
-				});
+				tips('对不起，您没有操作权限,请联系管理员！', 'warning');
 			} else {
 				if (XHR.status == 200) {
 					// 成功返回结果
 				}
 			}
 		} catch (e) {
-			$.gritter.add({
-				title:	'提示',
-				text:	'连接服务器时发生错误.请再试一次！',
-				sticky: true
-			});
+			tips('连接服务器时发生错误.请再试一次！', 'error');
 		}
 	});
 }
