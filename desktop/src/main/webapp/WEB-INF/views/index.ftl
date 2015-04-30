@@ -40,9 +40,9 @@
 		</ul>
 		<ul id="links">
 			<li class="icon"></li>
-			<li><a href="#" onclick="my.desktop.openWindow('我的文件', '${contextPath}/user/index', 800, 500);"><span>我的文件</span></a></li>
-			<li><a href="#" onclick="my.desktop.openWindow('共享文件', '${contextPath}/user/share', 800, 500);"><span>共享文件</span></a></li>
-			<li><a href="#" onclick="my.desktop.openWindow('下载目录', '${contextPath}/user/dowload', 800, 500);"><span>下载目录</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('我的电脑', '${contextPath}/user/index', 800, 500);"><span>我的文件</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('我的电脑', '${contextPath}/user/share', 800, 500);"><span>共享文件</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('我的电脑', '${contextPath}/user/dowload', 800, 500);"><span>下载目录</span></a></li>
 			<li><div id="rightspliter"></div></li>
             <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/backgroud', 800, 500);"><span>桌面背景</span></a></li>
             <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/profile', 800, 500);"><span>个人设置</span></a></li>

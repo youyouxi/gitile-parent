@@ -95,6 +95,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/"/>
 			<mvc:mapping path="/index"/>
+			<mvc:mapping path="/user/*"/>
 			<mvc:mapping path="/common/*"/>
 			<bean class="com.gitile.desktop.interceptor.AuthInterceptor" />
 		</mvc:interceptor>
