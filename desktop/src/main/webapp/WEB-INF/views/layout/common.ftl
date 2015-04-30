@@ -10,17 +10,19 @@
 	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css?version=20150429" media="screen" />
 	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/dialog.css?version=20150429" media="screen" />
 	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css?version=20150429" media="screen" />
+	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/subcommon.css?version=20150429" media="screen" />
 		<#nested>
 	</head>
 </#macro>
 
 <#macro defaultFrame menu>
 <body oncontextmenu="return false;">
-    <div id='ui-setting'>
-		<div class="setting_menu_left menu_left">	
+    <div id='ui-common'>
+		<div class="common_menu_left menu_left">	
 			<h1>个人设置</h1>
-			<ul class='setting'>
+			<ul class='sub_common'>
 				<li target_url="${contextPath}/common/profile" <#if menu=="profile"> class="selected" </#if>><i class="font-icon icon-user"></i>个人中心</li>
+                <li target_url="${contextPath}/common/password" <#if menu=="password"> class="selected" </#if>><i class="font-icon icon-lock"></i>修改密码</li>
                 <li target_url="${contextPath}/common/backgroud" <#if menu=="backgroud"> class="selected" </#if>><i class="font-icon icon-picture"></i>更换壁纸</li>
 				<li target_url="${contextPath}/common/help" <#if menu=="help"> class="selected" </#if>><i class="font-icon icon-question"></i>使用帮助</li>
                 <li target_url="${contextPath}/common/aboutus" <#if menu=="aboutus"> class="selected" </#if>><i class="font-icon icon-info"></i>关于我们</li>

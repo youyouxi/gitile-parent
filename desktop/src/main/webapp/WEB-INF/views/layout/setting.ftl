@@ -10,19 +10,20 @@
 	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/simple-line-icons.min.css?version=20150429" media="screen" />
 	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/dialog.css?version=20150429" media="screen" />
 	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/common.css?version=20150429" media="screen" />
+	    <link rel="stylesheet" type="text/css" href="${contextPath}/static/css/subcommon.css?version=20150429" media="screen" />
 		<#nested>
 	</head>
 </#macro>
 
 <#macro defaultFrame menu>
 <body oncontextmenu="return false;">
-    <div id='ui-setting'>
-		<div class="setting_menu_left menu_left">	
-			<h1>系统设置</h1>
-			<ul class='setting'>
+    <div id='ui-common'>
+		<div class="common_menu_left menu_left">	
+			<h1>系统管理</h1>
+			<ul class='sub_common'>
 				<#if menus?exists>
 				<#list menus as me>
-					<li target_url="${contextPath}${me.rightUrl!''}" <#if menu==me.id> class="selected" </#if>><i class="font-icon icon-user"></i>${me.name!''}</li>
+					<li target_url="${contextPath}${me.rightUrl!''}" <#if menu==me.id> class="selected" </#if>><i class="font-icon ${me.icon!'icon-arrow-right'}"></i>${me.name!''}</li>
                	</#list>
 				</#if>
 			</ul>

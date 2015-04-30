@@ -1,15 +1,16 @@
 <#assign contextPath=springMacroRequestContext.getContextPath() />
-<#import "/layout/common.ftl" as dk>
-<@dk.head "个人中心">
-	
+<#import "/layout/setting.ftl" as dk>
+<@dk.head "角色管理">
 </@dk.head>
 
-<@dk.defaultFrame "profile">
+<@dk.defaultFrame 14>
 <div class='main'>
-	<div class='h1'><i class="font-icon icon-user"></i>个人中心</div>
+	<div class='h1'><i class="font-icon icon-lock"></i>角色管理</div>
 	<div class="section">
-        
-    </div>
+	    <div class="content">
+	        
+	    </div>
+	</div>
 </div>
 </@dk.defaultFrame>
 

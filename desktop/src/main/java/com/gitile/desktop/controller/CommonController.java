@@ -62,6 +62,14 @@ public class CommonController {
 	}
 	
 	/**
+	 * 修改密码
+	 */
+	@RequestMapping(value = "/common/password", method = RequestMethod.GET)
+	public String password(HttpServletRequest request, Model model) {
+		return "common/password.ftl";
+	}
+	
+	/**
 	 * 关于我们
 	 */
 	@RequestMapping(value = "/common/aboutus", method = RequestMethod.GET)

@@ -1,0 +1,52 @@
+#ui-common { position: absolute; width: 100%; top: 0;}
+#ui-common ul { margin: 0; padding: 0;}
+#ui-common li { margin: 0; padding: 0;}
+#ui-common a { text-decoration: none; color: #446;}
+#ui-common input,#ui-common input:focus { outline: none; box-shadow: none; border: 1px solid #bbb; padding: 5px;}
+#ui-common input:focus { border-color: #75A1F0 !important; outline: none; box-shadow: 0 0 12px #75A1F0; -webkit-transition: all 0.218s; -moz-transition: all 0.218s; -o-transition: all 0.218s; -ms-transition: all 0.218s; transition: all 0.218s;}
+#ui-common .font-icon { padding-right: 0.8em; display: inline-block;}
+#ui-common .menu_left { min-width: 170px; position: fixed; z-index: 999; left: 0; height: 100%; width: 20%; background: #4265a4;}
+#ui-common .menu_left h1 { color: #fff; font-weight: 400; padding: 30px 20px 30px 30px; font-size: 20px; margin: 0; font-family: Helvetica, "Helvetica Neue", "Century Gothic", "微软雅黑", "Microsoft Yahei", "STXihei";}
+#ui-common .menu_left .sub_common li { line-height: 2.5em; color: #fff; font-size: 15px; box-sizing: border-box; text-indent: 10px; display: block; cursor: pointer; outline: none; -webkit-transition: padding 0.2s; -moz-transition: padding 0.2s; -o-transition: padding 0.2s; -ms-transition: padding 0.2s; transition: padding 0.2s; border-left: 4px solid #4265a4;}
+#ui-common .menu_left .sub_common li.hover { background: #5c7fbd; border-left: 4px solid #5c7fbd;}
+#ui-common .menu_left .sub_common li.selected { background: #5579ba; border-left: 4px solid #fff; padding-left: 20px;}
+#ui-common .main {position: absolute; left: 150px; width: initial; margin: 15px 0 20px 15px; right: 20px;}
+#ui-common .main .h1 .font-icon { padding-right: 16px;}
+#ui-common .main div.h1 { font-weight: 400; color: #5c7fbd; padding: 0px 0 10px 10px; font-size: 26px;}
+#ui-common a.add { display: block; text-align: center; text-decoration: none; background: #f6f6f6; line-height: 2em; height: 2em; border: 1px solid #ccc; color: #555;}
+#ui-common a.add:hover { background: #eee;}
+#ui-common a.button { text-decoration: none; cursor: pointer; text-shadow: none; border: none; box-shadow: none; border-radius: 0; margin: 5px 10px 5px 0; font-weight: 400; padding: 0.5em 1.5em; font-size: 13px; display: inline-block; text-align: center; -webkit-transition: all 0.218s; -moz-transition: all 0.218s; -o-transition: all 0.218s; -ms-transition: all 0.218s; transition: all 0.218s; background: #4265a4; color: #fff;}
+#ui-common a.button:hover { background: #344f7f; text-shadow: none; border: none; box-shadow: none; border-radius: 0;}
+#ui-common a.button:active { background: #162237; text-shadow: none; border: none; box-shadow: none; border-radius: 0;}
+#ui-common a.create { margin: 0; display: block; position: absolute; right: 21px;}
+#ui-common .app_list .app-list { margin-top: 10px; border: 1px solid #ddd;}
+#ui-common .app_list .app-list li { list-style: none; border-bottom: 1px solid #eee;}
+#ui-common .app_list .app-list li a.icon { float: left; width: 70px; padding: 5px;}
+#ui-common .app_list .app-list li a.icon img { width: 64px; height: 64px;}
+#ui-common .app_list .app-list li p { float: left; width: 340px; margin: 0; padding: 0; color: #666; height: 67px; overflow: hidden;}
+#ui-common .app_list .app-list li p span { display: block; word-break: break-all;}
+#ui-common .app_list .app-list li p span.title { font-size: 16px; font-weight: 800; line-height: 33px; height: 33px;}
+#ui-common .app_list .app-list li .right { width: 160px; float: right;}
+#ui-common .common_menu_left { min-width: 150px; width: 150px;}
+#ui-common .common_menu_left .sub_common li.selected { padding-left: 12px;}
+#ui-common .main .section { padding-bottom: 10px; border-top: 1px solid #ddd; padding-top: 10px; color: #666;}
+#ui-common .main .section .box .line { margin-top: 15px; margin-bottom: 15px;}
+#ui-common .main .section .box .button { margin-left: 110px; margin-top: 5px;}
+#ui-common .main .section .box span { display: block; float: left; width: 110px; line-height: 25px;}
+#ui-common .main .section .box input { display: block; width: 250px; font-weight: 800; color: #446;}
+#ui-common .main .section h3 { font-size: 14px; font-weight: bold; width: 140px; float: left;}
+#ui-common .main .section label { display: block;}
+#ui-common .main .list { float: left; width: 120px; background: #fff; margin-right: 15px; height: 92px; border: 1px solid #ddd; margin-bottom: 10px; cursor: pointer;}
+#ui-common .main .list .ico { width: 100px; height: 65px; margin: 10px; background-color: #fff; box-shadow: 0 1px 15px rgba(0,0,0,0.2);}
+#ui-common .main .list .ico img { width: 100px; height: 65px;}
+#ui-common .main .list.this { background-color: #ddd; color: #4265a4; border-color: #888;}
+#ui-common .main .list.listhover { border-color: #888;}
+#ui-common .main .content { word-break: break-all; color: #448;}
+#ui-common .main .content h2 { padding: 5px 0 5px 20px; margin: 10px 0; font-weight: 400; font-size: 16px; border-left: 5px solid #4265a4;}
+#ui-common .main .content p { margin-left: 5px; text-indent: 2em; margin-bottom: 8px; color: #666;}
+#ui-common .main .content .box { color: #555; clear: both; color: #666;}
+#ui-common .main .content .box .title { color: #444; border-bottom: 1px dashed #ddd; font-size: 21px; margin-bottom: 10px; margin-top: 10px;}
+#ui-common .main .content .box .title span { border-bottom: 1px solid #aaa; display: inline-block; margin-bottom: -1px; text-align: center; padding: 5px 10px; float: none; width: auto;}
+#ui-common .main .content .box p { line-height: 1.7em; text-indent: 2em; padding: 3px; margin: 0;}
+#ui-common .main .content .box p b { padding-right: 8px;}
+#ui-common .main .content .box p i { padding-right: 10px;}

@@ -32,19 +32,66 @@ public class SettingController {
 	}
 
 	/**
-	 * 系统设置
+	 * 账号管理
 	 */
 	@RequestMapping(value = "/setting/user", method = RequestMethod.GET)
-	public String index(HttpServletRequest request, Model model) {
+	public String user(HttpServletRequest request, Model model) {
 		initLeftMenu(request, model);
 		return "setting/user.ftl";
 	}
 
 	
+	/**
+	 * 部门管理
+	 */
+	@RequestMapping(value = "/setting/dept", method = RequestMethod.GET)
+	public String dept(HttpServletRequest request, Model model) {
+		initLeftMenu(request, model);
+		return "setting/dept.ftl";
+	}
 
-
-
+	/**
+	 * 角色管理
+	 */
+	@RequestMapping(value = "/setting/role", method = RequestMethod.GET)
+	public String role(HttpServletRequest request, Model model) {
+		initLeftMenu(request, model);
+		return "setting/role.ftl";
+	}
 	
+	/**
+	 * 应用管理
+	 */
+	@RequestMapping(value = "/setting/application", method = RequestMethod.GET)
+	public String application(HttpServletRequest request, Model model) {
+		initLeftMenu(request, model);
+		return "setting/application.ftl";
+	}
 	
+	/**
+	 * 基础设置
+	 */
+	@RequestMapping(value = "/setting/base", method = RequestMethod.GET)
+	public String base(HttpServletRequest request, Model model) {
+		initLeftMenu(request, model);
+		return "setting/base.ftl";
+	}
 	
+	/**
+	 * 表单设置
+	 */
+	@RequestMapping(value = "/setting/form", method = RequestMethod.GET)
+	public String form(HttpServletRequest request, Model model) {
+		initLeftMenu(request, model);
+		return "setting/form.ftl";
+	}
+	
+	/**
+	 * 系统设置
+	 */
+	@RequestMapping(value = "/setting/system", method = RequestMethod.GET)
+	public String system(HttpServletRequest request, Model model) {
+		initLeftMenu(request, model);
+		return "setting/system.ftl";
+	}
 }

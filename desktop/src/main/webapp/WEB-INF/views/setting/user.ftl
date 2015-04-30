@@ -1,12 +1,12 @@
 <#assign contextPath=springMacroRequestContext.getContextPath() />
 <#import "/layout/setting.ftl" as dk>
-<@dk.head "更换壁纸">
-	<link rel="stylesheet" type="text/css" href="${contextPath}/static/css/setting.css?version=20150429" media="screen" />
+<@dk.head "账号管理">
 </@dk.head>
 
 <@dk.defaultFrame 12>
 <div class='main'>
-	<div class='h1'><i class="font-icon icon-info"></i>关于我们</div>
+	<a class="create button">添加账号</a>
+	<div class='h1'><i class="font-icon icon-user"></i>账号管理</div>
 	<div class="section">
 	    <div class="content">
 	        
