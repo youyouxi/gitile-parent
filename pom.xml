@@ -25,6 +25,7 @@
 	<modules>
 		<module>core</module>
 		<module>mybatis</module>
+		<module>weixin</module>
 		<module>desktop</module>
   	</modules>
 	
@@ -59,6 +60,12 @@
 			<dependency>
 				<groupId>com.gitile</groupId>
 				<artifactId>gitile-mybatis</artifactId>
+				<version>${gitile.version}</version>
+				<scope>compile</scope>
+			</dependency>
+			<dependency>
+				<groupId>com.gitile</groupId>
+				<artifactId>gitile-weixin</artifactId>
 				<version>${gitile.version}</version>
 				<scope>compile</scope>
 			</dependency>
