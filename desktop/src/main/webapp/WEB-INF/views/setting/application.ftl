@@ -7,6 +7,7 @@
 <div class='app_list main'>
 	<a class="create button">添加应用</a>
 	<div class='h1'><i class="font-icon icon-grid"></i>应用管理</div>
+	<div class="section">
 	<ul class="app-list">
         <li>
             <a href="javascript:;" class="icon">
@@ -20,6 +21,7 @@
             <div style="clear:both;"></div>
         </li>
     </ul>
+    </div>
 </div>
 </@dk.defaultFrame>
 
