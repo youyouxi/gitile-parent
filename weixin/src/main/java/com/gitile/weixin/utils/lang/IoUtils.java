@@ -16,16 +16,18 @@ import java.nio.charset.Charset;
  *
  */
 public class IoUtils {
-	
+
 	public static final int BUFFER_SIZE = 4096;
 
-
 	/**
-	 * Copy the contents of the given InputStream into a new byte array.
-	 * Leaves the stream open when done.
-	 * @param in the stream to copy from
+	 * Copy the contents of the given InputStream into a new byte array. Leaves
+	 * the stream open when done.
+	 * 
+	 * @param in
+	 *            the stream to copy from
 	 * @return the new byte array that has been copied to
-	 * @throws IOException in case of I/O errors
+	 * @throws IOException
+	 *             in case of I/O errors
 	 */
 	public static byte[] copyToByteArray(InputStream in) throws IOException {
 		ByteArrayOutputStream out = new ByteArrayOutputStream(BUFFER_SIZE);
@@ -34,13 +36,17 @@ public class IoUtils {
 	}
 
 	/**
-	 * Copy the contents of the given InputStream into a String.
-	 * Leaves the stream open when done.
-	 * @param in the InputStream to copy from
+	 * Copy the contents of the given InputStream into a String. Leaves the
+	 * stream open when done.
+	 * 
+	 * @param in
+	 *            the InputStream to copy from
 	 * @return the String that has been copied to
-	 * @throws IOException in case of I/O errors
+	 * @throws IOException
+	 *             in case of I/O errors
 	 */
-	public static String copyToString(InputStream in, Charset charset) throws IOException {
+	public static String copyToString(InputStream in, Charset charset)
+			throws IOException {
 		StringBuilder out = new StringBuilder();
 		InputStreamReader reader = new InputStreamReader(in, charset);
 		char[] buffer = new char[BUFFER_SIZE];
@@ -54,9 +60,13 @@ public class IoUtils {
 	/**
 	 * Copy the contents of the given byte array to the given OutputStream.
 	 * Leaves the stream open when done.
-	 * @param in the byte array to copy from
-	 * @param out the OutputStream to copy to
-	 * @throws IOException in case of I/O errors
+	 * 
+	 * @param in
+	 *            the byte array to copy from
+	 * @param out
+	 *            the OutputStream to copy to
+	 * @throws IOException
+	 *             in case of I/O errors
 	 */
 	public static void copy(byte[] in, OutputStream out) throws IOException {
 		out.write(in);
@@ -65,12 +75,18 @@ public class IoUtils {
 	/**
 	 * Copy the contents of the given String to the given output OutputStream.
 	 * Leaves the stream open when done.
-	 * @param in the String to copy from
-	 * @param charset the Charset
-	 * @param out the OutputStream to copy to
-	 * @throws IOException in case of I/O errors
+	 * 
+	 * @param in
+	 *            the String to copy from
+	 * @param charset
+	 *            the Charset
+	 * @param out
+	 *            the OutputStream to copy to
+	 * @throws IOException
+	 *             in case of I/O errors
 	 */
-	public static void copy(String in, Charset charset, OutputStream out) throws IOException {
+	public static void copy(String in, Charset charset, OutputStream out)
+			throws IOException {
 		Writer writer = new OutputStreamWriter(out, charset);
 		writer.write(in);
 		writer.flush();
@@ -79,10 +95,14 @@ public class IoUtils {
 	/**
 	 * Copy the contents of the given InputStream to the given OutputStream.
 	 * Leaves both streams open when done.
-	 * @param in the InputStream to copy from
-	 * @param out the OutputStream to copy to
+	 * 
+	 * @param in
+	 *            the InputStream to copy from
+	 * @param out
+	 *            the OutputStream to copy to
 	 * @return the number of bytes copied
-	 * @throws IOException in case of I/O errors
+	 * @throws IOException
+	 *             in case of I/O errors
 	 */
 	public static int copy(InputStream in, OutputStream out) throws IOException {
 		int byteCount = 0;
@@ -99,7 +119,9 @@ public class IoUtils {
 	/**
 	 * Returns a variant of the given {@link InputStream} where calling
 	 * {@link InputStream#close() close()} has no effect.
-	 * @param in the InputStream to decorate
+	 * 
+	 * @param in
+	 *            the InputStream to decorate
 	 * @return a version of the InputStream that ignores calls to close
 	 */
 	public static InputStream nonClosing(InputStream in) {
@@ -109,13 +131,14 @@ public class IoUtils {
 	/**
 	 * Returns a variant of the given {@link OutputStream} where calling
 	 * {@link OutputStream#close() close()} has no effect.
-	 * @param out the OutputStream to decorate
+	 * 
+	 * @param out
+	 *            the OutputStream to decorate
 	 * @return a version of the OutputStream that ignores calls to close
 	 */
 	public static OutputStream nonClosing(OutputStream out) {
 		return new NonClosingOutputStream(out);
 	}
-
 
 	private static class NonClosingInputStream extends FilterInputStream {
 
@@ -127,7 +150,6 @@ public class IoUtils {
 		public void close() throws IOException {
 		}
 	}
-
 
 	private static class NonClosingOutputStream extends FilterOutputStream {
 
@@ -144,5 +166,24 @@ public class IoUtils {
 		@Override
 		public void close() throws IOException {
 		}
+	}
+
+	/**
+	 * stream to string
+	 * 
+	 * @param is
+	 * @return
+	 */
+	public static String streamToString(InputStream is) {
+		ByteArrayOutputStream baos = new ByteArrayOutputStream();
+		int i = -1;
+		try {
+			while ((i = is.read()) != -1) {
+				baos.write(i);
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return baos.toString();
 	}
 }

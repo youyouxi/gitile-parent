@@ -19,4 +19,26 @@ public class StringUtils {
 		}
 		return sb.toString();
 	}
+	
+	/**
+	 * 判断是否为空
+	 * @param str
+	 * @return
+	 */
+	public static boolean isNotEmpty(String str) {
+		if (str!=null && str.trim().length()>0) {
+			return true;
+		}
+		return false;
+	}
+	
+	/**
+	 * 判断是否为空
+	 * @param str
+	 * @return
+	 */
+	public static boolean isEmpty(String str) {
+		return !isNotEmpty(str);
+	}
+	
 }

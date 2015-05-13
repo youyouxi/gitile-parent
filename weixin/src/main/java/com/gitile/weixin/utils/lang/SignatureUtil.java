@@ -59,9 +59,6 @@ public class SignatureUtil {
 		return DigestUtils.sha1Hex(str);
 	}
 
-
-
-
 	/**
 	 * 生成事件消息接收签名
 	 * @param token
