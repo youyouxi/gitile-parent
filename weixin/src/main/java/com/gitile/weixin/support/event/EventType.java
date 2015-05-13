@@ -4,8 +4,8 @@ package com.gitile.weixin.support.event;
  * 微信事件类型，event字段的枚举
  */
 public enum EventType {
-	subscribe,             //关注
-	unsubscribe,           //取消关注
+	SUBSCRIBE,             //关注
+	UNSUBSCRIBE,           //取消关注
 	CLICK,                 //点击
 	SCAN,                  //扫描
 	LOCATION,              //上报地理位置

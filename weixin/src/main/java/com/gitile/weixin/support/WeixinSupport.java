@@ -99,8 +99,9 @@ public abstract class WeixinSupport {
 	 * 消息事件分发
 	 */
 	private void dispatchMessage(){
-		if(StringUtils.isNotEmpty(weixinRequest.getMsgType())){
-			MsgType msgType = MsgType.valueOf(weixinRequest.getMsgType());
+		String msgTypeStr = weixinRequest.getMsgType();
+		if(StringUtils.isNotEmpty(msgTypeStr)){
+			MsgType msgType = MsgType.valueOf(msgTypeStr.toUpperCase());
 			switch (msgType) {
 			case EVENT:
 				dispatchEvent();
@@ -137,15 +138,15 @@ public abstract class WeixinSupport {
 	 * event事件分发
 	 */
 	private void dispatchEvent() {
-		EventType event = EventType.valueOf(weixinRequest.getEvent());
+		EventType event = EventType.valueOf(weixinRequest.getEvent().toUpperCase());
 		switch (event) {
 		case CLICK:
 			click();
 			break;
-		case subscribe:
+		case SUBSCRIBE:
 			subscribe();
 			break;
-		case unsubscribe:
+		case UNSUBSCRIBE:
 			unSubscribe();
 			break;
 		case SCAN:
