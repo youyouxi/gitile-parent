@@ -137,7 +137,7 @@ my.desktop = {
         $.dialog.open(url,{
             title:titile,
             fixed:true,
-            ico: my.util.global.staticPath+'/images/app/computer.png',
+            ico: my.util.global.staticPath+'/images/app/icon20.jpg',
             resize:1,
             width:width,
             height:height
@@ -153,7 +153,7 @@ my.desktop = {
             if(icon) {
                 icon = my.util.global.staticPath+'/images/app/' + app.icon;
             } else {
-                icon = my.util.global.staticPath+'/images/app/computer.png'
+                icon = my.util.global.staticPath+'/images/app/icon20.jpg'
             }
             //高宽css px或者*%
             if (typeof(app.width)!='number' 

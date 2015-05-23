@@ -123,6 +123,7 @@ body{
     height: 60px;
     background-repeat: no-repeat;
     background-position: center center;
+    background-size:60px 60px;
     margin: 0 auto;
     margin-top: 4px;
     margin-bottom: 3px;

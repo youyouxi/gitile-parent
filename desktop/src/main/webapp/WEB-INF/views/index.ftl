@@ -35,21 +35,19 @@
 	<div id="menuwin">
 		<div id="startmenu"></div>
 		<ul id="programs">
-			<li><a href="#">应用安装/卸载</a></li>
+			<li><a>系统公告</a></li>
 			<li><div id="leftspliter"></div></li>
 		</ul>
 		<ul id="links">
 			<li class="icon"></li>
-			<li><a href="#" onclick="my.desktop.openWindow('我的电脑', '${contextPath}/user/index', 800, 500);"><span>我的文件</span></a></li>
-			<li><a href="#" onclick="my.desktop.openWindow('我的电脑', '${contextPath}/user/share', 800, 500);"><span>共享文件</span></a></li>
-			<li><a href="#" onclick="my.desktop.openWindow('我的电脑', '${contextPath}/user/dowload', 800, 500);"><span>下载目录</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/profile', 800, 500);"><span>我的信息</span></a></li>
 			<li><div id="rightspliter"></div></li>
-            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/backgroud', 800, 500);"><span>桌面背景</span></a></li>
-            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/profile', 800, 500);"><span>个人设置</span></a></li>
+			<li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/password', 800, 500);"><span>修改密码</span></a></li>
+            <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/backgroud', 800, 500);"><span>更换壁纸</span></a></li>
             <li><div id="rightspliter"></div></li>
             <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/aboutus', 800, 500);"><span>关于我们</span></a></li>
             <li><a href="#" onclick="my.desktop.openWindow('个人设置', '${contextPath}/common/help', 800, 500);"><span>使用帮助</span></a></li>
-			<li><a href="${contextPath}/logout" style="margin-top:82px;"><span>安全退出</span></a></li>            
+			<li><a href="${contextPath}/logout" style="margin-top:153px;"><span>安全退出</span></a></li>            
 		</ul>
 	</div>
     <script src="${contextPath}/static/js/libs/jquery-2.1.3.min.js?version=20150429"></script>

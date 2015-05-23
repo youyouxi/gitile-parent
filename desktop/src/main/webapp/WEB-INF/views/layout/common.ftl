@@ -21,7 +21,7 @@
 		<div class="common_menu_left menu_left">	
 			<h1>个人设置</h1>
 			<ul class='sub_common'>
-				<li target_url="${contextPath}/common/profile" <#if menu=="profile"> class="selected" </#if>><i class="font-icon icon-user"></i>个人中心</li>
+				<li target_url="${contextPath}/common/profile" <#if menu=="profile"> class="selected" </#if>><i class="font-icon icon-user"></i>我的信息</li>
                 <li target_url="${contextPath}/common/password" <#if menu=="password"> class="selected" </#if>><i class="font-icon icon-lock"></i>修改密码</li>
                 <li target_url="${contextPath}/common/backgroud" <#if menu=="backgroud"> class="selected" </#if>><i class="font-icon icon-picture"></i>更换壁纸</li>
 				<li target_url="${contextPath}/common/help" <#if menu=="help"> class="selected" </#if>><i class="font-icon icon-question"></i>使用帮助</li>

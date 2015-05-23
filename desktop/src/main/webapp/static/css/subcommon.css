@@ -10,7 +10,7 @@
 #ui-common .menu_left .sub_common li { line-height: 2.5em; color: #fff; font-size: 15px; box-sizing: border-box; text-indent: 10px; display: block; cursor: pointer; outline: none; -webkit-transition: padding 0.2s; -moz-transition: padding 0.2s; -o-transition: padding 0.2s; -ms-transition: padding 0.2s; transition: padding 0.2s; border-left: 4px solid #4265a4;}
 #ui-common .menu_left .sub_common li.hover { background: #5c7fbd; border-left: 4px solid #5c7fbd;}
 #ui-common .menu_left .sub_common li.selected { background: #5579ba; border-left: 4px solid #fff; padding-left: 20px;}
-#ui-common .main {position: absolute; left: 150px; width: initial; margin: 15px 0 20px 15px; right: 20px;}
+#ui-common .main {position: absolute; left: 150px; width: initial; margin: 15px 0 20px 15px; right: 20px;min-width: 630px;}
 #ui-common .main .h1 .font-icon { padding-right: 16px;}
 #ui-common .main div.h1 { font-weight: 400; color: #5c7fbd; padding: 0px 0 10px 10px; font-size: 26px;}
 #ui-common a.add { display: block; text-align: center; text-decoration: none; background: #f6f6f6; line-height: 2em; height: 2em; border: 1px solid #ccc; color: #555;}

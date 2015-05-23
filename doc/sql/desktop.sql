@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2015-04-29 16:14:08
+Date: 2015-05-23 17:05:20
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -37,8 +37,8 @@ CREATE TABLE `sys_application` (
 -- ----------------------------
 -- Records of sys_application
 -- ----------------------------
-INSERT INTO `sys_application` VALUES ('1', '我的电脑', 'computer.png', '0', '1', '600', '800', '/user/index', '0', '我的电脑：我的文件管理');
-INSERT INTO `sys_application` VALUES ('2', '系统设置', 'setting.png', '0', '1', '600', '800', '/setting/index', '0', '系统设置：自定义表单，权限配置，角色管理、数据字典等功能');
+INSERT INTO `sys_application` VALUES ('1', '我的网盘', 'icon29.jpg', '0', '1', '600', '800', '/user/index', '0', '我的电脑：我的文件管理');
+INSERT INTO `sys_application` VALUES ('2', '系统管理', 'icon15.jpg', '0', '1', '600', '800', '/setting/user', '0', '系统设置：自定义表单，权限配置，角色管理、数据字典等功能');
 
 -- ----------------------------
 -- Table structure for `sys_application_right`
@@ -70,13 +70,13 @@ INSERT INTO `sys_application_right` VALUES ('8', '1', null, '3', '查看', '3', 
 INSERT INTO `sys_application_right` VALUES ('9', '1', null, '3', '修改', '3', '/user/updateShareFile', '0');
 INSERT INTO `sys_application_right` VALUES ('10', '1', null, '3', '删除', '3', '/user/deleteShareFile', '0');
 INSERT INTO `sys_application_right` VALUES ('11', '1', null, '3', '添加', '3', '/user/addShareFile', '0');
-INSERT INTO `sys_application_right` VALUES ('12', '2', null, '0', '账号管理', '2', '/setting/user', '1');
-INSERT INTO `sys_application_right` VALUES ('13', '2', null, '0', '部门管理', '2', '/setting/dept', '2');
-INSERT INTO `sys_application_right` VALUES ('14', '2', null, '0', '角色管理', '2', '/setting/role', '3');
-INSERT INTO `sys_application_right` VALUES ('15', '2', null, '0', '应用管理', '2', '/setting/application', '4');
-INSERT INTO `sys_application_right` VALUES ('16', '2', null, '0', '基础管理', '2', '/setting/base', '5');
-INSERT INTO `sys_application_right` VALUES ('17', '2', null, '0', '表单管理', '2', '/setting/form', '6');
-INSERT INTO `sys_application_right` VALUES ('18', '2', null, '0', '系统管理', '2', '/setting/system', '7');
+INSERT INTO `sys_application_right` VALUES ('12', '2', 'icon-user', '0', '账号管理', '2', '/setting/user', '1');
+INSERT INTO `sys_application_right` VALUES ('13', '2', 'icon-users', '0', '部门管理', '2', '/setting/dept', '2');
+INSERT INTO `sys_application_right` VALUES ('14', '2', 'icon-lock', '0', '角色管理', '2', '/setting/role', '3');
+INSERT INTO `sys_application_right` VALUES ('15', '2', 'icon-grid', '0', '应用管理', '2', '/setting/application', '4');
+INSERT INTO `sys_application_right` VALUES ('16', '2', 'icon-wrench', '0', '基础设置', '2', '/setting/base', '5');
+INSERT INTO `sys_application_right` VALUES ('17', '2', 'icon-book-open', '0', '表单设置', '2', '/setting/form', '6');
+INSERT INTO `sys_application_right` VALUES ('18', '2', 'icon-settings', '0', '系统设置', '2', '/setting/system', '7');
 
 -- ----------------------------
 -- Table structure for `sys_area`
@@ -3550,7 +3550,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '066d5452f390d096661e0014eaf97852b21b2c14', '67708db9d61ba694', '0', '2015-04-29 15:23:38', '1', '2014-05-10 14:17:06', '2014-05-10 14:17:08');
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '066d5452f390d096661e0014eaf97852b21b2c14', '67708db9d61ba694', '0', '2015-05-23 15:28:06', '1', '2014-05-10 14:17:06', '2014-05-10 14:17:08');
 
 -- ----------------------------
 -- Table structure for `sys_user_profile`
