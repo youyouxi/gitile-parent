@@ -2,7 +2,7 @@ body {
     font-size: 13px;
     padding: 0px;
     margin: 0px;
-    font-family: Helvetica, "Helvetica Neue", "Century Gothic", "å¾®è½¯é›…é»‘", "Microsoft Yahei", "STXihei";
+    font-family: Helvetica, "Helvetica Neue", "Century Gothic", "Î¢ÈíÑÅºÚ", "Microsoft Yahei", "STXihei";
     -khtml-user-select: none;
     -webkit-user-select: none;
     -moz-user-select: none;
@@ -37,11 +37,14 @@ textarea {
 a {
     text-decoration: none;
 }
+dd {
+	margin:0;
+}
 textarea,
 input,
 button,
 pre {
-    font-family: Helvetica, "Helvetica Neue", "Century Gothic", "å¾®è½¯é›…é»‘", "Microsoft Yahei", "STXihei";
+    font-family: Helvetica, "Helvetica Neue", "Century Gothic", "Î¢ÈíÑÅºÚ", "Microsoft Yahei", "STXihei";
     -khtml-user-select: auto;
     -webkit-user-select: auto;
     -moz-user-select: auto;

@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2015-05-26 13:47:57
+Date: 2015-05-26 19:46:35
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -3500,7 +3500,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '066d5452f390d096661e0014eaf97852b21b2c14', '67708db9d61ba694', '0', '2015-05-26 13:46:52', '1', '2014-05-10 14:17:06', '2014-05-10 14:17:08');
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '066d5452f390d096661e0014eaf97852b21b2c14', '67708db9d61ba694', '0', '2015-05-26 19:45:58', '1', '2014-05-10 14:17:06', '2014-05-10 14:17:08');
 
 -- ----------------------------
 -- Table structure for `sys_user_profile`

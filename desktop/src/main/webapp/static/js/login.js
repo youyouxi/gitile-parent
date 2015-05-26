@@ -7,8 +7,7 @@ my.login = {
 		$.backstretch([
 		   my.util.global.staticPath+"/images/login/1.jpg",
 		   my.util.global.staticPath+"/images/login/2.jpg",
-		   my.util.global.staticPath+"/images/login/3.jpg",
-		   my.util.global.staticPath+"/images/login/4.jpg"], 
+		   my.util.global.staticPath+"/images/login/3.jpg"], 
 		   {
 				fade: 1000,
 				duration: 8000
