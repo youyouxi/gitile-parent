@@ -18,7 +18,6 @@
 		<mapper resource="mybatis/mapper/SysRoleMapper.xml"/>
 		<mapper resource="mybatis/mapper/SysRoleApplicationMapper.xml"/>
 		<mapper resource="mybatis/mapper/SysRoleApplicationRightMapper.xml"/>
-		<mapper resource="mybatis/mapper/SysRoleLevelMapper.xml"/>
 		<mapper resource="mybatis/mapper/SysUserMapper.xml"/>
 		<mapper resource="mybatis/mapper/SysUserProfileMapper.xml"/>
 		<!-- expand -->

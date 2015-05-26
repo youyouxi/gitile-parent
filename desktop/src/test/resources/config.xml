@@ -76,7 +76,6 @@
 		<table name="sys_role" comment="系统角色">
 			<column name="id" type="VARCHAR" length="200" digits="0" caption="角色编号" notnull="true"/>
 			<column name="name" type="VARCHAR" length="200" digits="0" caption="角色名称" notnull="true"/>
-			<column name="level_id" type="BIGINT" length="19" digits="0" caption="审批级别" notnull="true"/>
 			<column name="remark" type="VARCHAR" length="1000" digits="0" caption="角色描述" notnull="false"/>
 			<primary column="id" />
 		</table>
@@ -97,12 +96,6 @@
 			<foreign name="sys_role_application_right_ibfk_1" column="role_id" relate="sys_role" relate_column="id" delete="3" update="3"/>
 			<foreign name="sys_role_application_right_ibfk_2" column="app_id" relate="sys_application" relate_column="id" delete="3" update="3"/>
 			<foreign name="sys_role_application_right_ibfk_3" column="right_id" relate="sys_application_right" relate_column="id" delete="3" update="3"/>
-		</table>
-		<table name="sys_role_level" comment="角色审批级别">
-			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>
-			<column name="name" type="VARCHAR" length="200" digits="0" caption="员工编号" notnull="true"/>
-			<column name="sort" type="INT" length="10" digits="0" caption="上级领导" notnull="true"/>
-			<primary column="id" />
 		</table>
 		<table name="sys_user" comment="账号信息">
 			<column name="id" type="BIGINT" length="19" digits="0" caption="编号" notnull="true"/>

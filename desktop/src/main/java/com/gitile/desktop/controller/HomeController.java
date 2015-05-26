@@ -63,6 +63,16 @@ public class HomeController {
 	}
 	
 	/**
+	 * 进入登录页2
+	 */
+	@RequestMapping(value = "/login2", method = RequestMethod.GET)
+	public String login2(HttpServletRequest request, Model model,
+			@RequestParam(value="refurl", required=false) String refurl) {
+		model.addAttribute("refurl", refurl);
+		return "login2.ftl";
+	}
+	
+	/**
 	 * 退出系统
 	 */
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)

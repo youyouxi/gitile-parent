@@ -7,7 +7,7 @@ import com.gitile.mybatis.BuildCode;
 public class AutoCode {
 	
 	public static void main(String[] args) {
-		buildConfig();
+//		buildConfig();
 		buildModel();
 		buildMapper();
 		buildDao();

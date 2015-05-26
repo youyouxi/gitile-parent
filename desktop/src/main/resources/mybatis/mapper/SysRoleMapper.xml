@@ -5,11 +5,10 @@
 	<resultMap id="BaseResultMap" type="com.gitile.desktop.base.model.SysRole">
 		<result column="id" property="id" />
 		<result column="name" property="name" />
-		<result column="level_id" property="levelId" />
 		<result column="remark" property="remark" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id,name,level_id,remark
+		id,name,remark
 	</sql>
 	<select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.String" >
 		select <include refid="Base_Column_List" /> from sys_role where id = #{id}
@@ -18,13 +17,12 @@
 		delete from sys_role where id = #{id}
 	</delete>
 	<insert id="save" parameterType="com.gitile.desktop.base.model.SysRole" >
-		insert into sys_role(id,name,level_id,remark) values (#{id},#{name},#{levelId},#{remark});
+		insert into sys_role(id,name,remark) values (#{id},#{name},#{remark});
 	</insert>
 	<update id="update" parameterType="com.gitile.desktop.base.model.SysRole" >
 		update sys_role
 		<set> 
 			name = #{name},
-			level_id = #{levelId},
 			remark = #{remark},
 		</set> 
 		where id = #{id}
@@ -33,7 +31,6 @@
 		update sys_role
 		<set> 
 			<if test="name != null">name = #{name},</if>
-			<if test="levelId != null">level_id = #{levelId},</if>
 			<if test="remark != null">remark = #{remark},</if>
 		</set> 
 		where id = #{id}
@@ -127,7 +124,6 @@
 		update sys_role
 		<set> 
 			name = #{record.name},
-			level_id = #{record.levelId},
 			remark = #{record.remark},
 		</set> 
 		<if test="_parameter != null" >
@@ -138,7 +134,6 @@
 		update sys_role
 		<set> 
 			<if test="record.name != null">name = #{record.name},</if>
-			<if test="record.levelId != null">level_id = #{record.levelId},</if>
 			<if test="record.remark != null">remark = #{record.remark},</if>
 		</set> 
 		<if test="_parameter != null" >

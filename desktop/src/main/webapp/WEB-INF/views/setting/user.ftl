@@ -3,7 +3,7 @@
 <@dk.head "账号管理">
 </@dk.head>
 
-<@dk.defaultFrame 12>
+<@dk.defaultFrame 1>
 <div class='main'>
 	<a class="create button">添加账号</a>
 	<div class='h1'><i class="font-icon icon-user"></i>账号管理</div>

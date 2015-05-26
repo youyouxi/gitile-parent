@@ -3,7 +3,7 @@
 <@dk.head "表单设置">
 </@dk.head>
 
-<@dk.defaultFrame 17>
+<@dk.defaultFrame 6>
 <div class='main'>
 	<div class='h1'><i class="font-icon icon-book-open"></i>表单设置</div>
 	<div class="section">

@@ -3,7 +3,7 @@
 <@dk.head "部门管理">
 </@dk.head>
 
-<@dk.defaultFrame 13>
+<@dk.defaultFrame 2>
 <div class='main'>
 	<div class='h1'><i class="font-icon icon-users"></i>部门管理</div>
 	<div class="section">

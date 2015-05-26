@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50173
 File Encoding         : 65001
 
-Date: 2015-05-23 17:05:20
+Date: 2015-05-26 13:47:57
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -32,13 +32,12 @@ CREATE TABLE `sys_application` (
   `remark` varchar(1000) DEFAULT NULL COMMENT '备注',
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8 COMMENT='应用';
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COMMENT='应用';
 
 -- ----------------------------
 -- Records of sys_application
 -- ----------------------------
-INSERT INTO `sys_application` VALUES ('1', '我的网盘', 'icon29.jpg', '0', '1', '600', '800', '/user/index', '0', '我的电脑：我的文件管理');
-INSERT INTO `sys_application` VALUES ('2', '系统管理', 'icon15.jpg', '0', '1', '600', '800', '/setting/user', '0', '系统设置：自定义表单，权限配置，角色管理、数据字典等功能');
+INSERT INTO `sys_application` VALUES ('1', '系统管理', 'icon15.jpg', '0', '1', '600', '800', '/setting/user', '0', '系统设置：自定义表单，权限配置，角色管理、数据字典等功能');
 
 -- ----------------------------
 -- Table structure for `sys_application_right`
@@ -54,29 +53,18 @@ CREATE TABLE `sys_application_right` (
   `right_url` varchar(500) DEFAULT NULL COMMENT '访问地址',
   `sort` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_application_right
 -- ----------------------------
-INSERT INTO `sys_application_right` VALUES ('1', '1', null, '0', '访问权限', '3', '/user/index', '0');
-INSERT INTO `sys_application_right` VALUES ('2', '1', null, '0', '个人', '1', null, '0');
-INSERT INTO `sys_application_right` VALUES ('3', '1', null, '0', '共享', '1', null, '0');
-INSERT INTO `sys_application_right` VALUES ('4', '1', null, '2', '查看', '3', '/user/listMyFile', '0');
-INSERT INTO `sys_application_right` VALUES ('5', '1', null, '2', '修改', '3', '/user/updateMyFile', '0');
-INSERT INTO `sys_application_right` VALUES ('6', '1', null, '2', '删除', '3', '/user/deleteMyFile', '0');
-INSERT INTO `sys_application_right` VALUES ('7', '1', null, '2', '添加', '3', '/user/addMyFile', '0');
-INSERT INTO `sys_application_right` VALUES ('8', '1', null, '3', '查看', '3', '/user/listShareFile', '0');
-INSERT INTO `sys_application_right` VALUES ('9', '1', null, '3', '修改', '3', '/user/updateShareFile', '0');
-INSERT INTO `sys_application_right` VALUES ('10', '1', null, '3', '删除', '3', '/user/deleteShareFile', '0');
-INSERT INTO `sys_application_right` VALUES ('11', '1', null, '3', '添加', '3', '/user/addShareFile', '0');
-INSERT INTO `sys_application_right` VALUES ('12', '2', 'icon-user', '0', '账号管理', '2', '/setting/user', '1');
-INSERT INTO `sys_application_right` VALUES ('13', '2', 'icon-users', '0', '部门管理', '2', '/setting/dept', '2');
-INSERT INTO `sys_application_right` VALUES ('14', '2', 'icon-lock', '0', '角色管理', '2', '/setting/role', '3');
-INSERT INTO `sys_application_right` VALUES ('15', '2', 'icon-grid', '0', '应用管理', '2', '/setting/application', '4');
-INSERT INTO `sys_application_right` VALUES ('16', '2', 'icon-wrench', '0', '基础设置', '2', '/setting/base', '5');
-INSERT INTO `sys_application_right` VALUES ('17', '2', 'icon-book-open', '0', '表单设置', '2', '/setting/form', '6');
-INSERT INTO `sys_application_right` VALUES ('18', '2', 'icon-settings', '0', '系统设置', '2', '/setting/system', '7');
+INSERT INTO `sys_application_right` VALUES ('1', '1', 'icon-user', '0', '账号管理', '2', '/setting/user', '1');
+INSERT INTO `sys_application_right` VALUES ('2', '1', 'icon-users', '0', '部门管理', '2', '/setting/dept', '2');
+INSERT INTO `sys_application_right` VALUES ('3', '1', 'icon-lock', '0', '角色管理', '2', '/setting/role', '3');
+INSERT INTO `sys_application_right` VALUES ('4', '1', 'icon-grid', '0', '应用管理', '2', '/setting/application', '4');
+INSERT INTO `sys_application_right` VALUES ('5', '1', 'icon-wrench', '0', '基础设置', '2', '/setting/base', '5');
+INSERT INTO `sys_application_right` VALUES ('6', '1', 'icon-book-open', '0', '表单设置', '2', '/setting/form', '6');
+INSERT INTO `sys_application_right` VALUES ('7', '1', 'icon-settings', '0', '系统设置', '2', '/setting/system', '7');
 
 -- ----------------------------
 -- Table structure for `sys_area`
@@ -3427,7 +3415,6 @@ DROP TABLE IF EXISTS `sys_role`;
 CREATE TABLE `sys_role` (
   `id` varchar(200) NOT NULL COMMENT '角色编号',
   `name` varchar(200) NOT NULL COMMENT '角色名称',
-  `level_id` bigint(40) NOT NULL COMMENT '审批级别',
   `remark` varchar(1000) DEFAULT NULL COMMENT '角色描述',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -3435,13 +3422,7 @@ CREATE TABLE `sys_role` (
 -- ----------------------------
 -- Records of sys_role
 -- ----------------------------
-INSERT INTO `sys_role` VALUES ('admin', '超级管理员', '0', '超级管理员');
-INSERT INTO `sys_role` VALUES ('developers', '开发人员', '4', '开发人员');
-INSERT INTO `sys_role` VALUES ('manager', '总经理', '1', '总经理');
-INSERT INTO `sys_role` VALUES ('project_manager', '项目经理', '3', '项目经理');
-INSERT INTO `sys_role` VALUES ('salesman', '销售人员', '3', '销售经理');
-INSERT INTO `sys_role` VALUES ('sales_manager', '销售经理', '2', '销售总监');
-INSERT INTO `sys_role` VALUES ('technical_manager', '技术经理', '2', '技术经理');
+INSERT INTO `sys_role` VALUES ('admin', '超级管理员', '超级管理员');
 
 -- ----------------------------
 -- Table structure for `sys_role_application`
@@ -3457,13 +3438,12 @@ CREATE TABLE `sys_role_application` (
   KEY `role_id` (`role_id`) USING BTREE,
   CONSTRAINT `sys_role_application_ibfk_1` FOREIGN KEY (`app_id`) REFERENCES `sys_application` (`id`),
   CONSTRAINT `sys_role_application_ibfk_2` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role_application
 -- ----------------------------
 INSERT INTO `sys_role_application` VALUES ('1', 'admin', '1');
-INSERT INTO `sys_role_application` VALUES ('2', 'admin', '2');
 
 -- ----------------------------
 -- Table structure for `sys_role_application_right`
@@ -3482,48 +3462,18 @@ CREATE TABLE `sys_role_application_right` (
   CONSTRAINT `sys_role_application_right_ibfk_1` FOREIGN KEY (`role_id`) REFERENCES `sys_role` (`id`),
   CONSTRAINT `sys_role_application_right_ibfk_2` FOREIGN KEY (`app_id`) REFERENCES `sys_application` (`id`),
   CONSTRAINT `sys_role_application_right_ibfk_3` FOREIGN KEY (`right_id`) REFERENCES `sys_application_right` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 -- Records of sys_role_application_right
 -- ----------------------------
 INSERT INTO `sys_role_application_right` VALUES ('1', 'admin', '1', '1');
-INSERT INTO `sys_role_application_right` VALUES ('10', 'admin', '1', '2');
-INSERT INTO `sys_role_application_right` VALUES ('11', 'admin', '1', '3');
-INSERT INTO `sys_role_application_right` VALUES ('2', 'admin', '1', '4');
-INSERT INTO `sys_role_application_right` VALUES ('3', 'admin', '1', '5');
-INSERT INTO `sys_role_application_right` VALUES ('4', 'admin', '1', '6');
-INSERT INTO `sys_role_application_right` VALUES ('5', 'admin', '1', '7');
-INSERT INTO `sys_role_application_right` VALUES ('6', 'admin', '1', '8');
-INSERT INTO `sys_role_application_right` VALUES ('7', 'admin', '1', '9');
-INSERT INTO `sys_role_application_right` VALUES ('8', 'admin', '1', '10');
-INSERT INTO `sys_role_application_right` VALUES ('9', 'admin', '1', '11');
-INSERT INTO `sys_role_application_right` VALUES ('12', 'admin', '2', '12');
-INSERT INTO `sys_role_application_right` VALUES ('13', 'admin', '2', '13');
-INSERT INTO `sys_role_application_right` VALUES ('14', 'admin', '2', '14');
-INSERT INTO `sys_role_application_right` VALUES ('15', 'admin', '2', '15');
-INSERT INTO `sys_role_application_right` VALUES ('16', 'admin', '2', '16');
-INSERT INTO `sys_role_application_right` VALUES ('17', 'admin', '2', '17');
-INSERT INTO `sys_role_application_right` VALUES ('18', 'admin', '2', '18');
-
--- ----------------------------
--- Table structure for `sys_role_level`
--- ----------------------------
-DROP TABLE IF EXISTS `sys_role_level`;
-CREATE TABLE `sys_role_level` (
-  `id` bigint(40) NOT NULL AUTO_INCREMENT COMMENT '编号',
-  `name` varchar(200) NOT NULL COMMENT '员工编号',
-  `sort` int(11) NOT NULL COMMENT '上级领导',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COMMENT='审批级别';
-
--- ----------------------------
--- Records of sys_role_level
--- ----------------------------
-INSERT INTO `sys_role_level` VALUES ('1', '一级领导', '1');
-INSERT INTO `sys_role_level` VALUES ('2', '二级领导', '2');
-INSERT INTO `sys_role_level` VALUES ('3', '三级领导', '3');
-INSERT INTO `sys_role_level` VALUES ('4', '普通职员', '4');
+INSERT INTO `sys_role_application_right` VALUES ('2', 'admin', '1', '2');
+INSERT INTO `sys_role_application_right` VALUES ('3', 'admin', '1', '3');
+INSERT INTO `sys_role_application_right` VALUES ('4', 'admin', '1', '4');
+INSERT INTO `sys_role_application_right` VALUES ('5', 'admin', '1', '5');
+INSERT INTO `sys_role_application_right` VALUES ('6', 'admin', '1', '6');
+INSERT INTO `sys_role_application_right` VALUES ('7', 'admin', '1', '7');
 
 -- ----------------------------
 -- Table structure for `sys_user`
@@ -3550,7 +3500,7 @@ CREATE TABLE `sys_user` (
 -- ----------------------------
 -- Records of sys_user
 -- ----------------------------
-INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '066d5452f390d096661e0014eaf97852b21b2c14', '67708db9d61ba694', '0', '2015-05-23 15:28:06', '1', '2014-05-10 14:17:06', '2014-05-10 14:17:08');
+INSERT INTO `sys_user` VALUES ('1', 'admin', 'admin', '066d5452f390d096661e0014eaf97852b21b2c14', '67708db9d61ba694', '0', '2015-05-26 13:46:52', '1', '2014-05-10 14:17:06', '2014-05-10 14:17:08');
 
 -- ----------------------------
 -- Table structure for `sys_user_profile`

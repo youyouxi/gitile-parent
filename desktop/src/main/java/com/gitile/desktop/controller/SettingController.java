@@ -27,7 +27,7 @@ public class SettingController {
 	 */
 	private void initLeftMenu(HttpServletRequest request, Model model) {
 		SessionUser sessionUser = (SessionUser)AuthUtils.getSessionUser(request);
-		List<SysApplicationRight> menus = userService.findUserApplicationMenu(sessionUser.getRoleId(), 2L);
+		List<SysApplicationRight> menus = userService.findUserApplicationMenu(sessionUser.getRoleId(), 1L);
 		model.addAttribute("menus", menus);
 	}
 

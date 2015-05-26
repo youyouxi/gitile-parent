@@ -3,7 +3,7 @@
 <@dk.head "应用管理">
 </@dk.head>
 
-<@dk.defaultFrame 15>
+<@dk.defaultFrame 4>
 <div class='app_list main'>
 	<a class="create button">添加应用</a>
 	<div class='h1'><i class="font-icon icon-grid"></i>应用管理</div>
